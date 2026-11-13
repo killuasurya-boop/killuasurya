@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="360" viewBox="0 0 360 360" role="img" aria-labelledby="title desc">
+<title id="title">15 Doodle Organic Blob</title><desc id="desc">Electric Doodle vector 15_doodle_organic_blob.</desc>
+<defs>
+  <linearGradient id="k15doodleorganicblob_hood" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#C26AFF"/><stop offset="0.48" stop-color="#8530E5"/><stop offset="1" stop-color="#4D0AA5"/></linearGradient>
+  <linearGradient id="k15doodleorganicblob_skin" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFD2A3"/><stop offset=".53" stop-color="#FFAE77"/><stop offset="1" stop-color="#EA7348"/></linearGradient>
+  <linearGradient id="k15doodleorganicblob_screen" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#433A66"/><stop offset=".7" stop-color="#252237"/><stop offset="1" stop-color="#121422"/></linearGradient>
+  <linearGradient id="k15doodleorganicblob_lime" x1="0" y1="0" x2="1" y2=".4"><stop stop-color="#E5FF52"/><stop offset="1" stop-color="#B5EC05"/></linearGradient>
+ </defs><g stroke-linecap="round" stroke-linejoin="round"><path d="M42 92 Q27 58 62 49 M296 64 q34 -10 33 19" stroke="#C7F60C" stroke-width="10" fill="none" opacity=".55"/><path d="M51 183 C20 116 79 68 131 98 C162 41 227 46 253 98 C316 87 340 128 302 174 C336 227 304 293 238 279 C185 331 134 292 115 277 C69 283 35 238 51 183Z" fill="#8D37F6" stroke="#171024" stroke-width="9"/><path d="M100 159 Q126 128 151 150 M235 226 Q264 217 273 186" fill="none" stroke="#C98AFF" stroke-width="10"/></g></svg>

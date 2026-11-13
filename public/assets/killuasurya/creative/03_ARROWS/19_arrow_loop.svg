@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="360" viewBox="0 0 360 360" role="img" aria-labelledby="title desc">
+<title id="title">19 Arrow Loop</title><desc id="desc">Original hand-drawn vector arrow 19_arrow_loop.</desc>
+<defs>
+  <linearGradient id="k19arrowloop_hood" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#C26AFF"/><stop offset="0.48" stop-color="#8530E5"/><stop offset="1" stop-color="#4D0AA5"/></linearGradient>
+  <linearGradient id="k19arrowloop_skin" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFD2A3"/><stop offset=".53" stop-color="#FFAE77"/><stop offset="1" stop-color="#EA7348"/></linearGradient>
+  <linearGradient id="k19arrowloop_screen" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#433A66"/><stop offset=".7" stop-color="#252237"/><stop offset="1" stop-color="#121422"/></linearGradient>
+  <linearGradient id="k19arrowloop_lime" x1="0" y1="0" x2="1" y2=".4"><stop stop-color="#E5FF52"/><stop offset="1" stop-color="#B5EC05"/></linearGradient>
+ </defs><g stroke-linecap="round" stroke-linejoin="round"><path d="M236 111 C97 60 48 204 116 260 C173 315 270 275 282 208" stroke="#B764FF" stroke-width="20" fill="none"/><path d="M224 176 L284 204 L315 155" stroke="#B764FF" stroke-width="19" fill="none"/></g></svg>

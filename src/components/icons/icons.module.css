@@ -1,0 +1,85 @@
+/* ---------- shared ---------- */
+.ai, .ill { display: inline-grid; place-items: center; flex: none; line-height: 0; }
+.ill svg { overflow: visible; filter: drop-shadow(3px 3px 0 rgba(21, 21, 34, 0.9)); }
+/* Dark theme: white sticker rim (same idea as the mascot's die-cut border) so ink outlines stay readable. */
+[data-theme='dark'] .ill svg { filter: drop-shadow(1.5px 0 0 #fff) drop-shadow(-1.5px 0 0 #fff) drop-shadow(0 1.5px 0 #fff) drop-shadow(0 -1.5px 0 #fff) drop-shadow(3px 4px 0 rgba(0, 0, 0, 0.6)); }
+.ai svg, .ill svg * { transform-box: fill-box; transform-origin: center; }
+
+/* Sticker tile for line icons */
+.tile { width: 56px; height: 56px; border-radius: 16px; color: #151522; background: var(--c, var(--lime)); border: 2px solid #151522; box-shadow: 4px 4px 0 #151522; transform: rotate(-4deg); transition: transform var(--dur-hover) var(--ease-out), box-shadow var(--dur-hover) var(--ease-out); }
+:global([data-ai-host]):hover .tile, :global([data-ai-host]):focus-within .tile { transform: rotate(3deg) translate(-1px, -1px); box-shadow: 6px 6px 0 #151522; }
+
+/* ---------- line icons: draw-on ---------- */
+:global(.motion-ok) .ai[data-ai-ready] svg :is(path, circle, rect, line, polyline, ellipse) { stroke-dasharray: 1; stroke-dashoffset: 1; }
+:global(.motion-ok) .ai[data-seen] svg :is(path, circle, rect, line, polyline, ellipse) { stroke-dashoffset: 0; transition: stroke-dashoffset 0.7s var(--ease-out) calc(var(--i, 0) * 70ms); }
+
+/* ---------- line icons: hover reactions ---------- */
+:global([data-ai-host]):hover .fx_wiggle svg, :global([data-ai-host]):focus-within .fx_wiggle svg, .fx_wiggle:hover svg { animation: aiWiggle 0.55s var(--ease-out); }
+:global([data-ai-host]):hover .fx_bounce svg, :global([data-ai-host]):focus-within .fx_bounce svg, .fx_bounce:hover svg { animation: aiBounce 0.6s var(--ease-out); }
+:global([data-ai-host]):hover .fx_spin svg, :global([data-ai-host]):focus-within .fx_spin svg, .fx_spin:hover svg { animation: aiSpin 0.7s var(--ease-out); }
+:global([data-ai-host]):hover .fx_pulse svg, :global([data-ai-host]):focus-within .fx_pulse svg, .fx_pulse:hover svg { animation: aiPulse 0.6s var(--ease-out); }
+:global([data-ai-host]):hover .fx_nudge svg, :global([data-ai-host]):focus-within .fx_nudge svg, .fx_nudge:hover svg { animation: aiNudge 0.5s var(--ease-out); }
+:global([data-ai-host]):hover .fx_tilt svg, :global([data-ai-host]):focus-within .fx_tilt svg, .fx_tilt:hover svg { animation: aiTilt 0.6s var(--ease-out); }
+@keyframes aiWiggle { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-14deg); } 55% { transform: rotate(10deg); } 80% { transform: rotate(-4deg); } }
+@keyframes aiBounce { 0%, 100% { transform: translateY(0); } 35% { transform: translateY(-5px) scale(1.06); } 65% { transform: translateY(1px) scale(0.97); } }
+@keyframes aiSpin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+@keyframes aiPulse { 0%, 100% { transform: scale(1); } 40% { transform: scale(1.22); } 70% { transform: scale(0.95); } }
+@keyframes aiNudge { 0%, 100% { transform: translateX(0); } 40% { transform: translateX(5px); } 70% { transform: translateX(-2px); } }
+@keyframes aiTilt { 0%, 100% { transform: rotate(0) scale(1); } 50% { transform: rotate(8deg) scale(1.1); } }
+
+/* ---------- illustrated icons ----------
+   `play` = intro (first time in view) and replay (card hovered / focused). */
+.ill[data-seen] :is(.bar1, .bar2, .bar3), :global([data-ai-host]):hover .ill :is(.bar1, .bar2, .bar3), :global([data-ai-host]):focus-within .ill :is(.bar1, .bar2, .bar3) { animation: illGrow 0.7s var(--ease-out) both; transform-origin: 50% 100%; }
+.bar2 { animation-delay: 0.08s !important; } .bar3 { animation-delay: 0.16s !important; }
+.trace { stroke-dasharray: 1; }
+.ill[data-seen] .trace, :global([data-ai-host]):hover .ill .trace, :global([data-ai-host]):focus-within .ill .trace { animation: illDraw 0.8s var(--ease-out) 0.25s both; }
+.ill[data-seen] .tip, :global([data-ai-host]):hover .ill .tip, :global([data-ai-host]):focus-within .ill .tip { animation: illPop 0.4s var(--ease-out) 0.85s both; }
+
+.clap { transform-origin: 8% 80%; }
+.ill[data-seen] .clap, :global([data-ai-host]):hover .ill .clap, :global([data-ai-host]):focus-within .ill .clap { animation: illClap 0.6s var(--ease-out) both; }
+.ill[data-seen] .play, :global([data-ai-host]):hover .ill .play, :global([data-ai-host]):focus-within .ill .play { animation: illPop 0.45s var(--ease-out) 0.3s both; }
+.ill[data-seen] .spark, :global([data-ai-host]):hover .ill .spark, :global([data-ai-host]):focus-within .ill .spark { animation: illSpark 0.9s var(--ease-out) 0.35s both; }
+
+.lines { stroke-dasharray: 1; }
+.ill[data-seen] .block, :global([data-ai-host]):hover .ill .block, :global([data-ai-host]):focus-within .ill .block { animation: illPop 0.45s var(--ease-out) both; }
+.ill[data-seen] .lines, :global([data-ai-host]):hover .ill .lines, :global([data-ai-host]):focus-within .ill .lines { animation: illDraw 0.7s var(--ease-out) 0.15s both; }
+.ripple { stroke-opacity: 0; }
+.ill[data-seen] .cursor, :global([data-ai-host]):hover .ill .cursor, :global([data-ai-host]):focus-within .ill .cursor { animation: illCursor 0.9s var(--ease-out) 0.2s both; }
+.ill[data-seen] .ripple, :global([data-ai-host]):hover .ill .ripple, :global([data-ai-host]):focus-within .ill .ripple { animation: illRipple 0.6s ease-out 0.95s both; }
+
+.ill[data-seen] .layer1, :global([data-ai-host]):hover .ill .layer1, :global([data-ai-host]):focus-within .ill .layer1 { animation: illLift 0.8s var(--ease-out) both; --d: -5px; }
+.ill[data-seen] .layer3, :global([data-ai-host]):hover .ill .layer3, :global([data-ai-host]):focus-within .ill .layer3 { animation: illLift 0.8s var(--ease-out) both; --d: 5px; }
+.ill[data-seen] .node, :global([data-ai-host]):hover .ill .node, :global([data-ai-host]):focus-within .ill .node { animation: illLift 0.8s var(--ease-out) both, illBlink 0.8s linear both; --d: -5px; }
+
+.ill[data-seen] .core, :global([data-ai-host]):hover .ill .core, :global([data-ai-host]):focus-within .ill .core { animation: illCore 0.9s var(--ease-out) both; }
+.ill[data-seen] .pins, :global([data-ai-host]):hover .ill .pins, :global([data-ai-host]):focus-within .ill .pins { animation: illBlink 0.9s linear both; }
+.ill[data-seen] .bolt, :global([data-ai-host]):hover .ill .bolt, :global([data-ai-host]):focus-within .ill .bolt { animation: illPop 0.4s var(--ease-out) 0.3s both; }
+
+.ill[data-seen] :is(.dot1, .dot2, .dot3), :global([data-ai-host]):hover .ill :is(.dot1, .dot2, .dot3), :global([data-ai-host]):focus-within .ill :is(.dot1, .dot2, .dot3) { animation: illDot 0.9s var(--ease-out) both; }
+.dot2 { animation-delay: 0.12s !important; } .dot3 { animation-delay: 0.24s !important; }
+
+.check { stroke-dasharray: 1; }
+.ill[data-seen] .shieldBody, :global([data-ai-host]):hover .ill .shieldBody, :global([data-ai-host]):focus-within .ill .shieldBody { animation: illPop 0.5s var(--ease-out) both; }
+.ill[data-seen] .check, :global([data-ai-host]):hover .ill .check, :global([data-ai-host]):focus-within .ill .check { animation: illDraw 0.5s var(--ease-out) 0.3s both; }
+
+.ill[data-seen] .drop, :global([data-ai-host]):hover .ill .drop, :global([data-ai-host]):focus-within .ill .drop { animation: illDrop 0.75s var(--ease-out) both; transform-origin: 50% 100%; }
+.ill[data-seen] .shadow, :global([data-ai-host]):hover .ill .shadow, :global([data-ai-host]):focus-within .ill .shadow { animation: illShadow 0.75s var(--ease-out) both; }
+
+@keyframes illGrow { from { transform: scaleY(0.15); } 70% { transform: scaleY(1.08); } to { transform: scaleY(1); } }
+@keyframes illDraw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes illPop { from { transform: scale(0.4); opacity: 0; } 70% { transform: scale(1.15); opacity: 1; } to { transform: scale(1); opacity: 1; } }
+@keyframes illClap { 0% { transform: rotate(0); } 35% { transform: rotate(-18deg); } 60% { transform: rotate(3deg); } 100% { transform: rotate(0); } }
+@keyframes illSpark { 0% { transform: scale(0) rotate(-90deg); } 60% { transform: scale(1.25) rotate(20deg); } 100% { transform: scale(1) rotate(0); } }
+@keyframes illCursor { 0% { transform: translate(12px, 10px); } 70% { transform: translate(0, 0); } 82% { transform: scale(0.86); } 100% { transform: scale(1); } }
+@keyframes illRipple { 0% { transform: scale(0.3); stroke-opacity: 0.9; } 100% { transform: scale(1.9); stroke-opacity: 0; } }
+@keyframes illLift { 0%, 100% { transform: translateY(0); } 45% { transform: translateY(var(--d, -5px)); } }
+@keyframes illBlink { 0%, 100% { opacity: 1; } 30% { opacity: 0.35; } 60% { opacity: 1; } 80% { opacity: 0.5; } }
+@keyframes illCore { 0%, 100% { transform: scale(1); } 35% { transform: scale(1.18); } 65% { transform: scale(0.94); } }
+@keyframes illDot { 0%, 100% { transform: translateY(0); } 35% { transform: translateY(-6px); } 65% { transform: translateY(1px); } }
+@keyframes illDrop { 0% { transform: translateY(-18px) scale(0.9, 1.1); } 55% { transform: translateY(0) scale(1.1, 0.9); } 78% { transform: translateY(-4px) scale(0.98, 1.03); } 100% { transform: none; } }
+@keyframes illShadow { 0% { transform: scale(0.4); } 55% { transform: scale(1.1); } 100% { transform: scale(1); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .ai svg, .ill svg *, .tile { animation: none !important; transition: none !important; }
+  .trace, .lines, .check { stroke-dashoffset: 0; }
+}

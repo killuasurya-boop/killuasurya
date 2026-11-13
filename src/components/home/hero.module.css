@@ -1,0 +1,104 @@
+.hero { position: relative; isolation: isolate; overflow: hidden; margin-top: -84px; padding-top: 84px; min-height: min(680px, 100svh); display: flex; align-items: stretch; }
+.bg { position: absolute; inset: 0; z-index: -2; background: radial-gradient(1200px 600px at 75% 40%, rgba(130, 56, 245, 0.16), transparent 60%), var(--bg); }
+[data-theme='light'] .bg { background: var(--bg); }
+
+/* Decorative layer — original blob SVG + small ornaments */
+.decor { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.blob { position: absolute; opacity: 1; }
+.blobTL { left: -96px; top: -56px; width: 210px !important; height: 210px !important; transform: rotate(-20deg); }
+.blobBL { left: -80px; bottom: 30px; width: 170px !important; height: 170px !important; transform: rotate(30deg); }
+[data-theme='light'] .blob { opacity: 0.9; }
+.dot { position: absolute; width: 14px; height: 14px; border-radius: 50%; }
+.dotA { left: 72px; top: 230px; background: #ff7ac6; opacity: 0.8; }
+.dotB { left: 110px; top: 210px; width: 10px; height: 10px; background: var(--blue); }
+.dotC { right: 2%; top: 6%; width: 12px; height: 12px; background: #ff7ac6; }
+.dotD { right: -1%; top: 10%; width: 16px; height: 16px; background: #b78cff; }
+.slab { position: absolute; right: -4%; bottom: -12%; width: 30%; height: 62%; background: var(--purple); border-radius: 60% 0 0 0; transform: skewY(-18deg); opacity: 0.85; }
+[data-theme='light'] .slab { background: linear-gradient(120deg, var(--purple) 0 50%, var(--lime) 50% 100%); }
+
+.grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; gap: var(--s5); padding-top: var(--s5); padding-bottom: var(--s6); }
+
+.copy { position: relative; z-index: 3; display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--s5); padding-top: var(--s4); }
+.title { margin: 0 0 14px; font-size: clamp(36px, 3.95vw, 58px); line-height: 1.16; transform: rotate(-3deg); color: var(--text); }
+.line { display: block; white-space: nowrap; }
+.future { position: relative; display: inline-block; color: var(--hero-highlight-text); padding: 0 0.12em; }
+[data-theme='light'] .future { background: linear-gradient(transparent 18%, var(--hero-highlight-bg) 18% 88%, transparent 88%); border-radius: 6px; }
+.underlineSvg { position: absolute; left: -4%; top: 100%; transform: translateY(-40%) rotate(-3.5deg); z-index: -1; }
+/* Owner's 06_flat_lime_underline.svg is used unaltered; only its rendered stroke weight is tuned (CSS overrides
+   the presentation attribute) and it is tilted a further 3.5° to match the anchor's brush underline, measured on
+   the anchor board: stroke ≈ 0.24 × cap height, ~1–2px gap below the glyphs, ≈6.5° total slope. */
+.underlineSvg :global(path:first-of-type) { stroke-width: 64; }
+.underlineSvg :global(path:nth-of-type(2)) { stroke-width: 9; transform: translateY(-12px); }
+[data-theme='light'] .underlineSvg { display: none !important; }
+.sub { margin: 0; font-size: clamp(16px, 1.35vw, 19px); line-height: 1.6; font-weight: 500; color: var(--text); }
+.plain { margin: -8px 0 0; max-width: 520px; font-size: 15.5px; line-height: 1.6; color: var(--muted); }
+.plain strong { color: var(--text); font-weight: 700; }
+.workspace { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; margin: -14px 0 -10px; font-size: 14px; color: var(--muted); }
+.workspace strong { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+:global(.motion-ok) .workspace { opacity: 0; }
+.sep { color: var(--lime); padding: 0 4px; }
+[data-theme='light'] .sep { color: var(--purple); }
+.ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--s4); }
+.ctas :global(a) { min-height: 56px; padding: 0 30px; font-size: 16px; }
+.caps { list-style: none; margin: var(--s3) 0 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: var(--s4); }
+@media (min-width: 1280px) { .caps { flex-wrap: nowrap; } }
+.cap { display: flex; align-items: center; gap: 8px; text-align: left; font-size: 12.5px; white-space: nowrap; font-weight: 600; line-height: 1.25; color: var(--text); }
+.capIcon { flex: none; display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; border: 2px solid currentColor; }
+[data-theme='light'] .capIcon { color: var(--purple) !important; }
+
+.stage { position: relative; display: flex; justify-content: flex-end; align-items: flex-start; min-height: 540px; }
+.char { position: relative; flex: 0 0 auto; width: min(122%, 740px); margin-right: -14%; margin-top: -64px; margin-bottom: -120px; }
+[data-theme='light'] .char { width: min(116%, 700px); margin-top: -40px; }
+.charIdle { will-change: transform; }
+.mascotDark, .mascotLight { width: 100%; height: auto; }
+.mascotLight { display: none; }
+[data-theme='light'] .mascotDark { display: none; }
+[data-theme='light'] .mascotLight { display: block; }
+
+.bubble { position: absolute; z-index: 2; left: 2%; top: -24px; width: 190px; min-height: 160px; padding: 26px 22px; border-radius: 50% 50% 50% 50% / 55% 55% 45% 45%; background: var(--bubble-bg); color: var(--bubble-text); display: grid; place-items: center; text-align: center; transform: rotate(-9deg); box-shadow: var(--glow-purple); }
+.bubble::after { content: ''; position: absolute; right: 18px; bottom: -14px; width: 34px; height: 34px; background: inherit; clip-path: polygon(0 0, 100% 0, 100% 100%); }
+.bubble span { font-size: 22px; line-height: 1.12; }
+.bubbleLight { display: none; }
+[data-theme='light'] .bubbleDark { display: none; }
+[data-theme='light'] .bubbleLight { display: block; }
+
+.crown { position: absolute; right: 2%; top: 4%; z-index: 1; }
+.marks { position: absolute; left: 10%; top: 44%; z-index: 1; }
+.star { position: absolute; right: 18%; top: 0; z-index: 1; }
+.bolt { position: absolute; left: 30%; top: 8%; z-index: 1; }
+
+/* Motion pre-state (only when JS + motion allowed) */
+:global(.motion-ok) .sub, :global(.motion-ok) .plain, :global(.motion-ok) .cap, :global(.motion-ok) .bubble,
+:global(.motion-ok) .stage .dot,
+:global(.motion-ok) .underlineSvg, :global(.motion-ok) .ctas > span { opacity: 0; }
+
+/* 05 — character entrance (whole PNG only: rise + settle scale). Pure CSS from first paint and no
+   opacity pre-state, so the LCP image is never hidden behind JS/hydration on slow devices. GSAP keeps
+   idle float + parallax on the parent/child wrappers, so there is no transform conflict. */
+:global(.motion-ok) .char { animation: heroCharIn 0.9s var(--ease-out) 0.1s both; }
+@keyframes heroCharIn {
+  from { transform: translateY(40px) scale(0.92); }
+  to { transform: none; }
+}
+
+@media (max-width: 1023px) {
+  .char { width: 100%; margin: 0; }
+  .grid { grid-template-columns: 1fr; padding-top: var(--s4); }
+  .stage { min-height: 0; order: -1; max-width: 560px; margin: 0 auto; width: 100%; }
+  .title { font-size: clamp(32px, 6.4vw, 52px); }
+  .slab { display: none; }
+}
+@media (max-width: 560px) {
+  .hero { margin-top: -68px; padding-top: 68px; }
+  .title { font-size: clamp(26px, 8.2vw, 36px); transform: rotate(-2deg); }
+  .line { white-space: normal; }
+  .bubble { width: 128px; min-height: 108px; padding: 14px; left: -2%; }
+  .bubble span { font-size: 15px; }
+  .ctas { width: 100%; flex-direction: column; }
+  .ctas > span, .ctas > span > span, .ctas :global(a) { width: 100%; }
+  .caps { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); width: 100%; }
+  .blobTL { width: 160px !important; height: 160px !important; }
+  .blobBL { display: none; }
+}
+.ctaMain { display: inline-flex; }
+@media (max-width: 400px) { .sub { font-size: 15px; } .sub br { display: none; } }

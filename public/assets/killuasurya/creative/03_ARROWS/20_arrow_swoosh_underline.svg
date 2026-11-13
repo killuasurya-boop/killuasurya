@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="360" viewBox="0 0 360 360" role="img" aria-labelledby="title desc">
+<title id="title">20 Arrow Swoosh Underline</title><desc id="desc">Original hand-drawn vector arrow 20_arrow_swoosh_underline.</desc>
+<defs>
+  <linearGradient id="k20arrowswooshunderline_hood" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#C26AFF"/><stop offset="0.48" stop-color="#8530E5"/><stop offset="1" stop-color="#4D0AA5"/></linearGradient>
+  <linearGradient id="k20arrowswooshunderline_skin" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFD2A3"/><stop offset=".53" stop-color="#FFAE77"/><stop offset="1" stop-color="#EA7348"/></linearGradient>
+  <linearGradient id="k20arrowswooshunderline_screen" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#433A66"/><stop offset=".7" stop-color="#252237"/><stop offset="1" stop-color="#121422"/></linearGradient>
+  <linearGradient id="k20arrowswooshunderline_lime" x1="0" y1="0" x2="1" y2=".4"><stop stop-color="#E5FF52"/><stop offset="1" stop-color="#B5EC05"/></linearGradient>
+ </defs><g stroke-linecap="round" stroke-linejoin="round"><path d="M37 210 C111 178 223 187 316 139" stroke="#C7F60C" stroke-width="19" fill="none"/><path d="M257 130 l63 11 -42 45" stroke="#C7F60C" stroke-width="16" fill="none"/><path d="M63 251 Q190 217 279 230" stroke="#8D37F6" stroke-width="10" fill="none"/></g></svg>

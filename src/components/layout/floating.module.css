@@ -1,0 +1,6 @@
+.fab { position: fixed; z-index: 45; right: 20px; bottom: 20px; display: inline-flex; align-items: center; gap: 10px; min-height: 56px; padding: 0 22px 0 8px; border-radius: var(--radius-pill); background: var(--lime); color: var(--on-lime); font-weight: 800; font-size: 15px; border: 2px solid #151522; box-shadow: 4px 4px 0 #151522, var(--glow-lime); }
+.fab:focus-visible { outline: 3px solid var(--purple); outline-offset: 3px; }
+.icon { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: #151522; color: var(--lime); }
+@media (max-width: 560px) {
+  .fab { right: 14px; bottom: 14px; min-height: 52px; padding: 0 16px 0 6px; font-size: 14px; }
+}

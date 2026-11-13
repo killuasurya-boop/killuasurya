@@ -1,0 +1,14 @@
+.footer { border-top: 1px solid var(--border); padding: var(--s7) 0 var(--s5); margin-top: var(--s6); font-size: 14px; color: var(--muted); }
+.grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: var(--s6); }
+.brand p { margin: var(--s3) 0 0; max-width: 320px; line-height: 1.6; }
+.h { margin: 0 0 var(--s3); font-size: 13px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--text); }
+.grid ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.grid a { display: inline-flex; min-height: 44px; align-items: center; transition: color var(--dur-hover) var(--ease-out); }
+.grid a:hover { color: var(--lime); }
+[data-theme='light'] .grid a:hover { color: var(--purple); }
+.bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--s3); margin-top: var(--s6); padding-top: var(--s4); border-top: 1px solid var(--border); }
+.note { color: var(--coral-ink); font-weight: 600; }
+@media (max-width: 900px) { .grid { grid-template-columns: 1fr 1fr; } .brand { grid-column: 1 / -1; } }
+@media (max-width: 480px) { .grid { grid-template-columns: 1fr; } }
+/* keep the floating consultation button from covering the last footer line */
+@media (max-width: 900px) { .footer { padding-bottom: 96px; } }

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640" role="img" aria-labelledby="title desc">
+<title id="title">01 Mascot Hero Laptop</title><desc id="desc">Mascot utama, hoodie ungu, laptop dan thumbs-up.</desc>
+<defs>
+  <linearGradient id="k01mascotherolaptop_hood" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#C26AFF"/><stop offset="0.48" stop-color="#8530E5"/><stop offset="1" stop-color="#4D0AA5"/></linearGradient>
+  <linearGradient id="k01mascotherolaptop_skin" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFD2A3"/><stop offset=".53" stop-color="#FFAE77"/><stop offset="1" stop-color="#EA7348"/></linearGradient>
+  <linearGradient id="k01mascotherolaptop_screen" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#433A66"/><stop offset=".7" stop-color="#252237"/><stop offset="1" stop-color="#121422"/></linearGradient>
+  <linearGradient id="k01mascotherolaptop_lime" x1="0" y1="0" x2="1" y2=".4"><stop stop-color="#E5FF52"/><stop offset="1" stop-color="#B5EC05"/></linearGradient>
+ </defs><g stroke-linecap="round" stroke-linejoin="round">
+<!-- Accent lines: independent transparent artwork, not a background -->
+<path d="M95 180 Q58 165 53 128 M105 155 Q76 112 93 87" stroke="#C7F60C" stroke-width="11" fill="none"/>
+<path d="M486 132 l30 -24 M501 162 l38 -4" stroke="#B764FF" stroke-width="11" fill="none"/>
+<path d="M475 88 l12 -34 15 23 25 -16 -9 39" fill="none" stroke="#C7F60C" stroke-width="11"/>
+<!-- bag and hoodie silhouette with sticker outline -->
+<path d="M425 327 Q510 327 522 382 L530 522 Q477 559 420 524 L413 359Z" fill="#211C38" stroke="white" stroke-width="18"/>
+<path d="M425 327 Q510 327 522 382 L530 522 Q477 559 420 524 L413 359Z" fill="#262139" stroke="#15101F" stroke-width="5"/>
+<path d="M190 395 Q205 342 253 333 Q300 314 345 334 Q402 309 459 349 Q493 369 505 437 L515 543 Q376 566 151 532 Q137 442 190 395Z" fill="url(#k01mascotherolaptop_hood)" stroke="white" stroke-width="18"/>
+<path d="M190 395 Q205 342 253 333 Q300 314 345 334 Q402 309 459 349 Q493 369 505 437 L515 543 Q376 566 151 532 Q137 442 190 395Z" fill="url(#k01mascotherolaptop_hood)" stroke="#171024" stroke-width="6"/>
+<path d="M219 372 Q284 321 336 341 Q385 325 427 368 Q374 416 325 426 Q252 420 219 372Z" fill="#6120C1" stroke="#181020" stroke-width="7"/>
+<path d="M245 403 Q319 454 392 392 L428 542 213 542Z" fill="#8E39EA" stroke="#21102C" stroke-width="7"/>
+<path d="M218 421 Q202 478 218 529 M453 416 Q471 472 451 525" stroke="#D688FF" stroke-width="12" fill="none" opacity=".65"/>
+<path d="M314 421 L311 506 M350 418 L356 501" stroke="#32104C" stroke-width="7"/>
+<path d="M317 419 L320 485 M354 417 L360 488" stroke="#F7DFFF" stroke-width="5"/>
+<path d="M293 476 l13 -22 18 14 16 -21 15 24 18 -13 6 20 Q338 492 293 476Z" fill="none" stroke="white" stroke-width="7"/>
+<!-- neck and ears -->
+<path d="M291 311 L283 361 Q326 401 364 361 L354 300" fill="url(#k01mascotherolaptop_skin)" stroke="#171024" stroke-width="7"/>
+<path d="M257 258 Q222 233 211 272 Q208 299 245 305" fill="url(#k01mascotherolaptop_skin)" stroke="#171024" stroke-width="7"/>
+<path d="M421 252 Q455 228 459 270 Q456 297 426 299" fill="url(#k01mascotherolaptop_skin)" stroke="#171024" stroke-width="7"/>
+<path d="M221 268 Q241 259 241 282 M448 265 Q430 266 432 286" fill="none" stroke="#D87551" stroke-width="5"/>
+<!-- face -->
+<path d="M256 163 Q327 130 387 166 Q424 197 428 269 Q417 322 370 353 Q320 371 274 339 Q239 310 242 253 Q237 207 256 163Z" fill="url(#k01mascotherolaptop_skin)" stroke="#171024" stroke-width="7"/>
+<path d="M263 281 Q270 307 291 315" stroke="#F07563" stroke-width="10" opacity=".5" fill="none"/>
+<ellipse cx="286" cy="281" rx="16" ry="8" fill="#FF867C" opacity=".65"/><ellipse cx="403" cy="283" rx="16" ry="9" fill="#FF8775" opacity=".65"/>
+<!-- expressive layered hair back + front: stable mascot silhouette -->
+<path d="M224 222 Q185 209 193 172 Q166 140 194 119 Q192 81 239 84 Q249 42 296 65 Q323 37 354 69 Q406 47 426 91 Q479 94 457 143 Q483 177 441 199 L419 231 Q409 187 377 164 Q322 201 275 181 Q265 212 224 222Z" fill="#18121F" stroke="white" stroke-width="15"/>
+<path d="M224 222 Q185 209 193 172 Q166 140 194 119 Q192 81 239 84 Q249 42 296 65 Q323 37 354 69 Q406 47 426 91 Q479 94 457 143 Q483 177 441 199 L419 231 Q409 187 377 164 Q322 201 275 181 Q265 212 224 222Z" fill="#18121F" stroke="#15101F" stroke-width="6"/>
+<path d="M200 146 Q227 108 257 140 Q264 95 304 118 Q317 85 349 108 Q380 84 411 123 Q428 117 451 147" stroke="#433052" stroke-width="16" fill="none"/>
+<path d="M219 169 Q245 139 271 164 Q289 137 326 145 Q359 114 378 155 Q397 145 426 167" stroke="#0B0A12" stroke-width="15" fill="none"/>
+<path d="M218 120 Q230 105 246 116 M300 95 Q324 77 344 97 M389 109 Q408 107 421 119" stroke="#777083" stroke-width="5" opacity=".75" fill="none"/>
+<!-- nose / eyebrows / eyes (variant) -->
+<path d="M277 231 Q296 218 314 230" fill="none" stroke="#171024" stroke-width="8"/>
+<path d="M275 253 Q292 242 313 254" fill="none" stroke="#171024" stroke-width="7"/>
+<path d="M355 221 Q375 209 395 224" fill="none" stroke="#171024" stroke-width="9"/>
+<ellipse cx="380" cy="253" rx="22" ry="26" fill="white" stroke="#171024" stroke-width="5"/>
+<ellipse cx="385" cy="254" rx="11" ry="15" fill="#111019"/><circle cx="390" cy="245" r="5" fill="white"/>
+<path d="M337 280 Q345 290 354 281" stroke="#C86E4F" stroke-width="5" fill="none"/>
+<path d="M308 303 Q354 299 395 284 Q399 325 364 336 Q325 336 308 303Z" fill="#171024" stroke="#171024" stroke-width="6"/>
+<path d="M328 303 Q352 313 383 294" fill="none" stroke="#FFF5EE" stroke-width="10"/>
+<path d="M350 327 Q366 312 381 318" fill="none" stroke="#F66F86" stroke-width="9"/>
+
+<!-- headphones & audio tech identity -->
+<path d="M274 350 Q315 405 373 358" stroke="#150F22" stroke-width="28" fill="none"/>
+<circle cx="274" cy="373" r="27" fill="#2D203C" stroke="white" stroke-width="8"/>
+<circle cx="274" cy="373" r="27" fill="#39244E" stroke="#151024" stroke-width="6"/>
+<circle cx="274" cy="373" r="16" fill="#7D28CE" stroke="#BE77FF" stroke-width="6"/>
+<circle cx="385" cy="378" r="32" fill="#24202E" stroke="white" stroke-width="8"/>
+<circle cx="385" cy="378" r="32" fill="#302044" stroke="#151024" stroke-width="6"/>
+<circle cx="385" cy="378" r="19" fill="#7A27C4" stroke="#BF7DFF" stroke-width="7"/>
+
+<!-- thumb at left -->
+<path d="M186 413 Q158 391 145 349 Q141 328 153 321 Q168 316 176 343 L181 324 Q186 307 202 316 Q210 324 204 346 L221 346 Q239 350 232 367 Q244 375 234 386 Q235 410 211 426Z" fill="url(#k01mascotherolaptop_skin)" stroke="white" stroke-width="11"/>
+<path d="M186 413 Q158 391 145 349 Q141 328 153 321 Q168 316 176 343 L181 324 Q186 307 202 316 Q210 324 204 346 L221 346 Q239 350 232 367 Q244 375 234 386 Q235 410 211 426Z" fill="url(#k01mascotherolaptop_skin)" stroke="#1D1624" stroke-width="6"/>
+<!-- laptop with consistent industrial-dark screen + lime crown -->
+<path d="M157 427 L384 431 Q401 431 401 451 L429 549 L190 549Z" fill="url(#k01mascotherolaptop_screen)" stroke="white" stroke-width="13"/>
+<path d="M157 427 L384 431 Q401 431 401 451 L429 549 L190 549Z" fill="url(#k01mascotherolaptop_screen)" stroke="#16121F" stroke-width="6"/>
+<path d="M250 492 l7 -21 14 12 11 -23 12 23 15 -9 -2 22 Q279 506 250 492Z" fill="none" stroke="#C7F60C" stroke-width="6"/>
+<path d="M185 553 L461 553 Q477 553 474 566 L190 569Z" fill="#352B4A" stroke="white" stroke-width="9"/>
+<path d="M191 555 L455 554" stroke="#B764FF" stroke-width="6"/>
+</g></svg>

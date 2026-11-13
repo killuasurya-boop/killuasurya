@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="360" viewBox="0 0 360 360" role="img" aria-labelledby="title desc">
+<title id="title">14 Doodle Lightbulb</title><desc id="desc">Electric Doodle vector 14_doodle_lightbulb.</desc>
+<defs>
+  <linearGradient id="k14doodlelightbulb_hood" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#C26AFF"/><stop offset="0.48" stop-color="#8530E5"/><stop offset="1" stop-color="#4D0AA5"/></linearGradient>
+  <linearGradient id="k14doodlelightbulb_skin" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFD2A3"/><stop offset=".53" stop-color="#FFAE77"/><stop offset="1" stop-color="#EA7348"/></linearGradient>
+  <linearGradient id="k14doodlelightbulb_screen" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#433A66"/><stop offset=".7" stop-color="#252237"/><stop offset="1" stop-color="#121422"/></linearGradient>
+  <linearGradient id="k14doodlelightbulb_lime" x1="0" y1="0" x2="1" y2=".4"><stop stop-color="#E5FF52"/><stop offset="1" stop-color="#B5EC05"/></linearGradient>
+ </defs><g stroke-linecap="round" stroke-linejoin="round"><path d="M42 92 Q27 58 62 49 M296 64 q34 -10 33 19" stroke="#C7F60C" stroke-width="10" fill="none" opacity=".55"/><path d="M176 75 C114 70 86 113 93 171 C96 213 119 222 136 251 L221 251 C236 214 261 208 262 165 C264 114 237 77 176 75Z" fill="#FFD445" stroke="#171024" stroke-width="12"/><path d="M136 267 H224 M145 287 H216 M155 306 H203" fill="none" stroke="#171024" stroke-width="13"/><path d="M150 208 L143 165 176 185 208 164 198 210" fill="none" stroke="#171024" stroke-width="9"/><path d="M177 32 V51 M80 81 L67 65 M275 83 L291 66 M61 169 H41 M297 166 H319" stroke="#8D37F6" stroke-width="11"/></g></svg>

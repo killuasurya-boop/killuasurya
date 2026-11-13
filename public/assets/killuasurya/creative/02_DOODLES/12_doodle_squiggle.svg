@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="360" viewBox="0 0 360 360" role="img" aria-labelledby="title desc">
+<title id="title">12 Doodle Squiggle</title><desc id="desc">Electric Doodle vector 12_doodle_squiggle.</desc>
+<defs>
+  <linearGradient id="k12doodlesquiggle_hood" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#C26AFF"/><stop offset="0.48" stop-color="#8530E5"/><stop offset="1" stop-color="#4D0AA5"/></linearGradient>
+  <linearGradient id="k12doodlesquiggle_skin" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFD2A3"/><stop offset=".53" stop-color="#FFAE77"/><stop offset="1" stop-color="#EA7348"/></linearGradient>
+  <linearGradient id="k12doodlesquiggle_screen" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#433A66"/><stop offset=".7" stop-color="#252237"/><stop offset="1" stop-color="#121422"/></linearGradient>
+  <linearGradient id="k12doodlesquiggle_lime" x1="0" y1="0" x2="1" y2=".4"><stop stop-color="#E5FF52"/><stop offset="1" stop-color="#B5EC05"/></linearGradient>
+ </defs><g stroke-linecap="round" stroke-linejoin="round"><path d="M42 92 Q27 58 62 49 M296 64 q34 -10 33 19" stroke="#C7F60C" stroke-width="10" fill="none" opacity=".55"/><path d="M55 252 C52 132 151 303 164 163 C177 52 245 251 268 140 C283 66 309 106 321 118" stroke="#8D37F6" stroke-width="21" fill="none"/><path d="M61 294 Q188 331 308 278" stroke="#C7F60C" stroke-width="9" fill="none"/></g></svg>

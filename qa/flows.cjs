@@ -1,0 +1,63 @@
+// Interaction QA: Smart Brief validation + navigation, Package Builder handoff, Login validation, keyboard.
+const { chromium } = require('playwright');
+(async () => {
+  const b = await chromium.launch();
+  const p = await b.newPage({ viewport: { width: 1280, height: 900 } });
+  const log = (k, v) => console.log(k.padEnd(48), v);
+  await p.goto('http://localhost:3100/contact', { waitUntil: 'load' }); await p.waitForTimeout(1200);
+  await p.getByRole('button', { name: 'Lanjutkan' }).click(); await p.waitForTimeout(400);
+  log('brief: empty step1 errors', await p.locator('[role=alert]').count());
+  await p.getByLabel('Nama perusahaan / toko').fill('Toko Contoh');
+  await p.getByLabel('Nama PIC').fill('Budi');
+  await p.getByLabel('Kanal kontak pilihan').selectOption('email');
+  await p.getByLabel('Email').fill('salah');
+  await p.getByRole('button', { name: 'Lanjutkan' }).click(); await p.waitForTimeout(400);
+  log('brief: invalid email message', await p.locator('[role=alert]').first().textContent());
+  await p.getByLabel('Email').fill('budi@contoh.id');
+  await p.getByRole('button', { name: 'Lanjutkan' }).click(); await p.waitForTimeout(500);
+  log('brief: step2 heading', await p.locator('form h2').textContent());
+  log('brief: focus moved into step', await p.evaluate(() => document.activeElement.tagName));
+  await p.getByRole('button', { name: 'Lanjutkan' }).click(); await p.waitForTimeout(500);
+  await p.getByRole('button', { name: 'Lanjutkan' }).click(); await p.waitForTimeout(400);
+  log('brief: goals required', await p.locator('[role=alert]').first().textContent());
+  await p.locator('label', { hasText: 'Lead' }).first().click();
+  await p.getByRole('button', { name: 'Lanjutkan' }).click(); await p.waitForTimeout(500);
+  await p.locator('label', { hasText: 'Digital Growth' }).click();
+  await p.getByRole('button', { name: 'Lanjutkan' }).click(); await p.waitForTimeout(500);
+  await p.getByLabel('Kebutuhan & contoh proyek').fill('Butuh konten Instagram rutin dan iklan.');
+  await p.getByRole('button', { name: 'Lanjutkan' }).click(); await p.waitForTimeout(500);
+  await p.getByRole('button', { name: 'Lanjutkan' }).click(); await p.waitForTimeout(500);
+  await p.getByRole('button', { name: 'Lanjutkan' }).click(); await p.waitForTimeout(400);
+  log('brief: consent required', await p.locator('[role=alert]').first().textContent());
+  await p.locator('label', { hasText: 'Saya setuju data ini diproses' }).click();
+  await p.getByRole('button', { name: 'Lanjutkan' }).click(); await p.waitForTimeout(500);
+  log('brief: summary step', await p.locator('form h2').textContent());
+  await p.getByRole('button', { name: 'Kirim Brief' }).click(); await p.waitForTimeout(800);
+  log('brief: success (demo)', (await p.locator('[role=status]').first().textContent()).slice(0, 90));
+  await p.screenshot({ path: 'qa/screens/flow-brief-success.png' });
+
+  await p.goto('http://localhost:3100/build-your-package?package=GROW', { waitUntil: 'load' }); await p.waitForTimeout(1000);
+  log('builder: GROW preselected', await p.locator('input[value=GROW]').isChecked());
+  await p.getByRole('button', { name: 'Ajukan Penawaran' }).click({ force: true }); await p.waitForTimeout(500);
+  log('builder: incomplete toast', await p.locator('[role=status]').last().textContent());
+  await p.locator('label', { hasText: 'Creative Studio' }).first().click();
+  await p.getByLabel('Durasi').selectOption('3'); await p.getByLabel('Kompleksitas').selectOption('mid');
+  await p.getByRole('button', { name: 'Ajukan Penawaran' }).click(); await p.waitForURL(/contact/); await p.waitForTimeout(800);
+  log('builder → contact url', p.url().replace('http://localhost:3100', ''));
+
+  await p.goto('http://localhost:3100/login', { waitUntil: 'load' }); await p.waitForTimeout(1000);
+  await p.getByRole('button', { name: 'Masuk', exact: true }).click(); await p.waitForTimeout(400);
+  log('login: validation errors', await p.locator('[role=alert]').count());
+  await p.getByLabel('Kata sandi', { exact: true }).fill('rahasia123');
+  await p.getByRole('button', { name: 'Tampilkan kata sandi' }).click();
+  log('login: password toggle type', await p.getByLabel('Kata sandi', { exact: true }).getAttribute('type'));
+  await p.getByLabel('Email').fill('owner@contoh.id');
+  await p.getByRole('button', { name: 'Masuk', exact: true }).click(); await p.waitForTimeout(1200);
+  log('login: not-connected toast', await p.locator('[role=status]').last().textContent());
+
+  await p.goto('http://localhost:3100/portfolio', { waitUntil: 'load' }); await p.waitForTimeout(1000);
+  await p.getByRole('tab', { name: 'Creative' }).focus(); await p.keyboard.press('ArrowRight'); await p.waitForTimeout(500);
+  log('portfolio: arrow key tab →', await p.evaluate(() => document.activeElement.textContent));
+  log('portfolio: cards after filter', await p.locator('main article').count());
+  await b.close();
+})();

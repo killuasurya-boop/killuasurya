@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="360" viewBox="0 0 360 360" role="img" aria-labelledby="title desc">
+<title id="title">21 Arrow Motion Marks</title><desc id="desc">Original hand-drawn vector arrow 21_arrow_motion_marks.</desc>
+<defs>
+  <linearGradient id="k21arrowmotionmarks_hood" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#C26AFF"/><stop offset="0.48" stop-color="#8530E5"/><stop offset="1" stop-color="#4D0AA5"/></linearGradient>
+  <linearGradient id="k21arrowmotionmarks_skin" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFD2A3"/><stop offset=".53" stop-color="#FFAE77"/><stop offset="1" stop-color="#EA7348"/></linearGradient>
+  <linearGradient id="k21arrowmotionmarks_screen" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#433A66"/><stop offset=".7" stop-color="#252237"/><stop offset="1" stop-color="#121422"/></linearGradient>
+  <linearGradient id="k21arrowmotionmarks_lime" x1="0" y1="0" x2="1" y2=".4"><stop stop-color="#E5FF52"/><stop offset="1" stop-color="#B5EC05"/></linearGradient>
+ </defs><g stroke-linecap="round" stroke-linejoin="round"><path d="M54 267 Q115 177 169 203 Q227 226 308 85" stroke="#4DBBFF" stroke-width="18" fill="none"/><path d="M254 84 L313 72 L308 133" stroke="#4DBBFF" stroke-width="16" fill="none"/><path d="M51 153 l29 -37 M96 187 l19 -25 M245 286 l21 -29" stroke="#C7F60C" stroke-width="10"/></g></svg>

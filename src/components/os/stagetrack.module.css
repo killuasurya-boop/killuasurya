@@ -1,0 +1,27 @@
+.wrap { display: grid; gap: 8px; container-type: inline-size; }
+.track { list-style: none; margin: 0; padding: 4px 0 2px; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); position: relative; }
+.track li { position: relative; display: grid; justify-items: center; gap: 6px; text-align: center; min-width: 0; }
+.track li:not(:last-child)::after { content: ''; position: absolute; top: 12px; left: calc(50% + 14px); right: calc(-50% + 14px); height: 3px; border-radius: 3px; background: var(--border-strong); }
+.track li.done:not(:last-child)::after { background: var(--purple); }
+.dot { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: 11px; font-weight: 800; background: var(--raised); color: var(--muted); border: 2px solid var(--border-strong); position: relative; z-index: 1; }
+.done .dot { background: var(--purple); border-color: var(--purple); color: #fff; }
+.now .dot { background: var(--lime); border-color: #151522; color: #151522; box-shadow: 0 0 0 4px rgba(199, 246, 12, 0.25); }
+:global(.motion-ok) .now .dot { animation: nowPulse 1.8s ease-in-out infinite; }
+@keyframes nowPulse { 0%, 100% { box-shadow: 0 0 0 4px rgba(199, 246, 12, 0.25); } 50% { box-shadow: 0 0 0 8px rgba(199, 246, 12, 0.08); } }
+.lbl { font-size: 10.5px; line-height: 1.2; font-weight: 600; color: var(--muted); overflow-wrap: anywhere; }
+.now .lbl { color: var(--text); font-weight: 800; }
+.next { margin: 0; font-size: 13px; color: var(--muted); }
+.next strong { color: var(--text); }
+.mini { display: inline-flex; gap: 3px; align-items: center; }
+.mini i { width: 14px; height: 5px; border-radius: 3px; background: var(--border-strong); }
+.mini i.done { background: var(--purple); }
+.mini i.now { background: var(--lime); box-shadow: 0 0 0 1.5px #151522; }
+@media (prefers-reduced-motion: reduce) { .now .dot { animation: none !important; } }
+
+/* Narrow containers (task drawer, phones): only the current stage keeps its label. */
+@container (max-width: 560px) {
+  .track { padding-bottom: 20px; }
+  .lbl { display: none; }
+  .now .lbl { display: block; position: absolute; top: 32px; white-space: nowrap; }
+  .track li:first-child.now .lbl { left: 0; } .track li:last-child.now .lbl { right: 0; }
+}

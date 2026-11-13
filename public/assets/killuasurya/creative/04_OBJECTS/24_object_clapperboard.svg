@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="360" viewBox="0 0 360 360" role="img" aria-labelledby="title desc">
+<title id="title">24 Object Clapperboard</title><desc id="desc">Electric Doodle scalable vector illustration: 24_object_clapperboard.</desc>
+<defs>
+  <linearGradient id="k24objectclapperboard_hood" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#C26AFF"/><stop offset="0.48" stop-color="#8530E5"/><stop offset="1" stop-color="#4D0AA5"/></linearGradient>
+  <linearGradient id="k24objectclapperboard_skin" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFD2A3"/><stop offset=".53" stop-color="#FFAE77"/><stop offset="1" stop-color="#EA7348"/></linearGradient>
+  <linearGradient id="k24objectclapperboard_screen" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#433A66"/><stop offset=".7" stop-color="#252237"/><stop offset="1" stop-color="#121422"/></linearGradient>
+  <linearGradient id="k24objectclapperboard_lime" x1="0" y1="0" x2="1" y2=".4"><stop stop-color="#E5FF52"/><stop offset="1" stop-color="#B5EC05"/></linearGradient>
+ </defs><g stroke-linecap="round" stroke-linejoin="round"><path d="M67 124 L290 76 L302 258 Q303 278 280 284 L85 284 Q62 281 62 258Z" fill="#28223D" stroke="white" stroke-width="12"/><path d="M62 134 L291 86 L300 119 L73 169Z" fill="#C7F60C" stroke="#14101D" stroke-width="8"/><path d="M99 125 l37 26 M159 113 l34 26 M223 102 l34 26" stroke="#21152B" stroke-width="18"/><path d="M146 185 L216 218 L146 251Z" fill="#B764FF" stroke="#181024" stroke-width="7"/></g></svg>

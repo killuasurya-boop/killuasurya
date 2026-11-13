@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="360" viewBox="0 0 360 360" role="img" aria-labelledby="title desc">
+<title id="title">30 Object Chat Bubble</title><desc id="desc">Electric Doodle scalable vector illustration: 30_object_chat_bubble.</desc>
+<defs>
+  <linearGradient id="k30objectchatbubble_hood" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#C26AFF"/><stop offset="0.48" stop-color="#8530E5"/><stop offset="1" stop-color="#4D0AA5"/></linearGradient>
+  <linearGradient id="k30objectchatbubble_skin" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFD2A3"/><stop offset=".53" stop-color="#FFAE77"/><stop offset="1" stop-color="#EA7348"/></linearGradient>
+  <linearGradient id="k30objectchatbubble_screen" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#433A66"/><stop offset=".7" stop-color="#252237"/><stop offset="1" stop-color="#121422"/></linearGradient>
+  <linearGradient id="k30objectchatbubble_lime" x1="0" y1="0" x2="1" y2=".4"><stop stop-color="#E5FF52"/><stop offset="1" stop-color="#B5EC05"/></linearGradient>
+ </defs><g stroke-linecap="round" stroke-linejoin="round"><path d="M61 69 H278 Q314 69 314 108 V243 Q314 276 279 278 H156 L100 319 L109 277 H61 Q28 277 28 243 V108 Q29 69 61 69Z" fill="#8D37F6" stroke="white" stroke-width="12"/><path d="M61 69 H278 Q314 69 314 108 V243 Q314 276 279 278 H156 L100 319 L109 277 H61 Q28 277 28 243 V108 Q29 69 61 69Z" fill="url(#k30objectchatbubble_hood)" stroke="#171024" stroke-width="7"/><circle cx="103" cy="178" r="15" fill="#C7F60C"/><circle cx="174" cy="178" r="15" fill="#C7F60C"/><circle cx="243" cy="178" r="15" fill="#C7F60C"/></g></svg>

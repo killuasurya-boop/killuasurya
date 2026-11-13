@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="360" viewBox="0 0 360 360" role="img" aria-labelledby="title desc">
+<title id="title">09 Doodle Crown</title><desc id="desc">Electric Doodle vector 09_doodle_crown.</desc>
+<defs>
+  <linearGradient id="k09doodlecrown_hood" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#C26AFF"/><stop offset="0.48" stop-color="#8530E5"/><stop offset="1" stop-color="#4D0AA5"/></linearGradient>
+  <linearGradient id="k09doodlecrown_skin" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFD2A3"/><stop offset=".53" stop-color="#FFAE77"/><stop offset="1" stop-color="#EA7348"/></linearGradient>
+  <linearGradient id="k09doodlecrown_screen" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#433A66"/><stop offset=".7" stop-color="#252237"/><stop offset="1" stop-color="#121422"/></linearGradient>
+  <linearGradient id="k09doodlecrown_lime" x1="0" y1="0" x2="1" y2=".4"><stop stop-color="#E5FF52"/><stop offset="1" stop-color="#B5EC05"/></linearGradient>
+ </defs><g stroke-linecap="round" stroke-linejoin="round"><path d="M42 92 Q27 58 62 49 M296 64 q34 -10 33 19" stroke="#C7F60C" stroke-width="10" fill="none" opacity=".55"/><path d="M65 232 L91 113 153 174 213 77 270 171 324 115 307 232 Q180 261 65 232Z" fill="none" stroke="#C7F60C" stroke-width="16"/><path d="M78 265 Q190 292 302 261" fill="none" stroke="#C7F60C" stroke-width="17"/><path d="M119 290 Q181 302 243 293" fill="none" stroke="#B764FF" stroke-width="10"/></g></svg>

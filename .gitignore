@@ -1,0 +1,16 @@
+node_modules
+.next
+out
+*.tsbuildinfo
+qa/screens
+qa/test-results
+qa/playwright-report
+
+qa/*.json
+
+.env*
+!.env.example
+
+# Supabase CLI (local state)
+supabase/.temp
+supabase/.branches

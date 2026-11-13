@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="360" viewBox="0 0 360 360" role="img" aria-labelledby="title desc">
+<title id="title">25 Object Megaphone</title><desc id="desc">Electric Doodle scalable vector illustration: 25_object_megaphone.</desc>
+<defs>
+  <linearGradient id="k25objectmegaphone_hood" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#C26AFF"/><stop offset="0.48" stop-color="#8530E5"/><stop offset="1" stop-color="#4D0AA5"/></linearGradient>
+  <linearGradient id="k25objectmegaphone_skin" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFD2A3"/><stop offset=".53" stop-color="#FFAE77"/><stop offset="1" stop-color="#EA7348"/></linearGradient>
+  <linearGradient id="k25objectmegaphone_screen" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#433A66"/><stop offset=".7" stop-color="#252237"/><stop offset="1" stop-color="#121422"/></linearGradient>
+  <linearGradient id="k25objectmegaphone_lime" x1="0" y1="0" x2="1" y2=".4"><stop stop-color="#E5FF52"/><stop offset="1" stop-color="#B5EC05"/></linearGradient>
+ </defs><g stroke-linecap="round" stroke-linejoin="round"><path d="M66 145 L156 139 L268 86 L293 250 L157 208 L83 217Z" fill="#C4A4F8" stroke="white" stroke-width="12"/><path d="M66 145 L156 139 L268 86 L293 250 L157 208 L83 217Z" fill="#C4A4F8" stroke="#171020" stroke-width="7"/><ellipse cx="283" cy="168" rx="25" ry="82" transform="rotate(-8 283 168)" fill="#8D37F6" stroke="#171020" stroke-width="8"/><path d="M103 218 l23 79 41 -8 -15 -81" fill="#4D176D" stroke="#171020" stroke-width="8"/><path d="M304 110 l23 -16 M320 169 h22 M301 229 l28 17" stroke="#C7F60C" stroke-width="10"/></g></svg>

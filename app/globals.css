@@ -1,0 +1,148 @@
+/* KILLUASURYA.TECH — Electric Doodle / Dual Foundation tokens.
+   Canonical values: master prompt (DESIGN_TOKENS.json not present in Owner folder).
+   Dark & Light share ONE structure; only semantic colour, elevation and glow change. */
+
+:root,
+[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0a0b13;
+  --surface: #141624;
+  --raised: #232638;
+  --text: #f9f8ff;
+  --muted: #b9b6d3;
+  --border: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(255, 255, 255, 0.22);
+  --purple: #8238f5;
+  --purple-ink: #b78cff;
+  --lime: #c7f60c;
+  --on-lime: #151522;
+  --blue: #49b7ff;
+  --coral: #fc7158;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --info: #3b82f6;
+  --hero-highlight-text: var(--lime);
+  --coral-ink: #FF8E7A;
+  --success-ink: #7EE2A0;
+  --hero-highlight-bg: transparent;
+  --glow-purple: 0 0 28px rgba(130, 56, 245, 0.45);
+  --glow-lime: 0 0 22px rgba(199, 246, 12, 0.35);
+  --shadow-card: 0 12px 32px rgba(0, 0, 0, 0.38);
+  --shadow-lift: 0 18px 40px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(130, 56, 245, 0.35);
+  --bubble-bg: #b58cff;
+  --bubble-text: #151522;
+  --tint-lavender: #e7dcff;
+  --tint-lime: #ecfbb5;
+  --tint-sky: #cdeeff;
+  --tint-peach: #ffe2c6;
+  --tint-mint: #d9f7d4;
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f7f7fc;
+  --surface: #ffffff;
+  --raised: #eae8f5;
+  --text: #151522;
+  --muted: #55526b;
+  --border: rgba(21, 21, 34, 0.1);
+  --border-strong: rgba(21, 21, 34, 0.24);
+  --purple-ink: #6a22d9;
+  --hero-highlight-text: #151522;
+  --hero-highlight-bg: var(--lime);
+  --glow-purple: none;
+  --glow-lime: none;
+  --shadow-card: 0 8px 24px rgba(21, 21, 34, 0.08);
+  --shadow-lift: 0 16px 32px rgba(21, 21, 34, 0.12), 0 0 0 1px rgba(130, 56, 245, 0.28);
+  --bubble-bg: #c9a6ff;
+  --coral-ink: #A8321D;
+  --success-ink: #0F6E31;
+}
+
+:root {
+  --radius-card: 20px;
+  --radius-field: 11px;
+  --radius-pill: 999px;
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px; --s7: 48px; --s8: 64px;
+  --dur-tap: 120ms;
+  --dur-hover: 180ms;
+  --dur-toggle: 220ms;
+  --dur-modal: 280ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --container: 1280px;
+  --font-display: var(--font-knewave), 'Knewave', cursive;
+  --font-ui: var(--font-inter), 'Inter', system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+/* Theme change animates colour only — never layout. Disabled on first paint by next-themes. */
+body, .theme-fade { transition: background-color var(--dur-toggle) var(--ease-out), color var(--dur-toggle) var(--ease-out), border-color var(--dur-toggle) var(--ease-out); }
+
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; }
+
+:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; border-radius: 8px; }
+[data-theme='light'] :focus-visible { outline-color: var(--purple); }
+
+.container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 var(--s5); }
+.display { font-family: var(--font-display); font-weight: 400; letter-spacing: 0.2px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.skip-link { position: absolute; left: 16px; top: -60px; z-index: 100; background: var(--lime); color: var(--on-lime); padding: 10px 16px; border-radius: var(--radius-pill); font-weight: 700; }
+.skip-link:focus { top: 12px; }
+
+.doodle { display: inline-block; line-height: 0; pointer-events: none; }
+.doodle svg { width: 100%; height: 100%; overflow: visible; }
+
+/* Motion pre-states: only applied when JS confirmed motion is allowed (class set before paint).
+   Without JS or with reduced motion, everything renders in its final state. */
+.motion-ok [data-reveal] { opacity: 0; }
+.motion-ok [data-hero='fade'] { opacity: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+.demo-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; padding: 3px 10px; border-radius: var(--radius-pill); background: rgba(252, 113, 88, 0.16); color: var(--coral-ink); }
+
+/* Chart categorical palette — validated with dataviz validate_palette.js.
+   Light: all checks PASS. Dark: CVD/normal/contrast PASS; lightness-band exception on slot 1 (#C7F60C
+   is the locked brand lime — kept for fidelity; series always carry legend + direct labels). */
+:root, [data-theme='dark'] { --c1: #C7F60C; --c2: #9563FF; --c3: #EE6248; --c4: #2E9BE6; --c5: #D9479E; --grid: rgba(255,255,255,0.07); }
+[data-theme='light'] { --c1: #6E8F00; --c2: #8238F5; --c3: #E2533A; --c4: #1D7FC4; --c5: #C2338A; --grid: rgba(21,21,34,0.08); }
+
+/* SplitText word masks: clip with clip-path instead of overflow:clip. WebKit treats an inline-block with
+   overflow≠visible as having its baseline at the bottom margin edge, which made masked headlines ~14%
+   taller in Safari than in Chromium/Firefox. clip-path clips the same way without touching the baseline. */
+[class*="word-mask"]:has(> .split-word) { overflow: visible !important; clip-path: inset(-0.25em -0.3em 0 -0.3em); }
+
+/* Scroll progress (public pages): pure CSS scroll-driven animation; hidden where unsupported. */
+.scroll-progress { display: none; }
+@supports (animation-timeline: scroll()) {
+  .motion-ok .scroll-progress { display: block; position: fixed; z-index: 55; left: 0; top: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--purple), var(--lime)); transform-origin: 0 50%; transform: scaleX(0); animation: scrollProgress linear both; animation-timeline: scroll(root block); pointer-events: none; }
+}
+@keyframes scrollProgress { to { transform: scaleX(1); } }
+
+/* Cursor spotlight on interactive cards (variables set by <Spotlight />). */
+@media (hover: hover) and (pointer: fine) {
+  [data-spot] { position: relative; }
+  [data-spot]::after { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity var(--dur-toggle) var(--ease-out); background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgba(199, 246, 12, 0.14), transparent 65%); }
+  [data-theme='light'] [data-spot]::after { background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgba(130, 56, 245, 0.12), transparent 65%); }
+  [data-spot]:hover::after { opacity: 1; }
+}

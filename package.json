@@ -1,0 +1,41 @@
+{
+  "name": "killuasurya-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "assets:sync": "node scripts/sync-assets.mjs",
+    "test:e2e": "playwright test --project=desktop-1440 --project=laptop-1024 --project=tablet-768 --project=mobile-390 --project=mobile-360",
+    "test:a11y": "playwright test a11y --project=desktop-1440 --project=mobile-390",
+    "test:visual": "playwright test visual --project=desktop-1440 --project=tablet-768 --project=mobile-390",
+    "test:perf": "playwright test --project=perf --workers=1",
+    "test:xbrowser": "playwright test --project=firefox-1440 --project=webkit-1440 --project=webkit-iphone",
+    "test:report": "playwright show-report qa/playwright-report"
+  },
+  "dependencies": {
+    "@dnd-kit/core": "6.3.1",
+    "@gsap/react": "2.1.2",
+    "@supabase/ssr": "0.12.7",
+    "@supabase/supabase-js": "2.119.0",
+    "gsap": "3.13.0",
+    "lucide-react": "0.468.0",
+    "motion": "12.23.12",
+    "next": "15.5.28",
+    "next-themes": "0.4.6",
+    "pdf-lib": "^1.17.1",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "server-only": "0.0.1"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@playwright/test": "1.63.0",
+    "@types/node": "22.15.0",
+    "@types/react": "19.1.12",
+    "@types/react-dom": "19.1.9",
+    "typescript": "5.8.3"
+  }
+}

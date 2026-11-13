@@ -1,0 +1,41 @@
+.field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.label { font-size: 14px; font-weight: 600; color: var(--text); }
+.req { color: var(--coral-ink); }
+.control { position: relative; display: flex; align-items: center; background: var(--surface); border: 1.5px solid var(--border-strong); border-radius: var(--radius-field); transition: border-color var(--dur-hover) var(--ease-out), box-shadow var(--dur-hover) var(--ease-out); }
+[data-theme='dark'] .control { background: rgba(255, 255, 255, 0.03); }
+.control:hover { border-color: var(--purple); }
+.control:focus-within { border-color: var(--purple); box-shadow: 0 0 0 4px rgba(130, 56, 245, 0.22); }
+.invalid, .invalid:hover { border-color: var(--danger); }
+.invalid:focus-within { box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.22); }
+.icon { display: grid; place-items: center; padding-left: 14px; color: var(--muted); }
+.input { flex: 1; min-width: 0; min-height: 48px; border: 0; background: transparent; color: var(--text); font: inherit; font-size: 15px; padding: 0 14px; outline: none; }
+.input::placeholder { color: color-mix(in srgb, var(--muted) 80%, transparent); }
+.input:focus-visible { outline: none; }
+.textarea { min-height: 120px; padding: 12px 14px; resize: vertical; line-height: 1.5; }
+.selectWrap select { appearance: none; cursor: pointer; padding-right: 40px; }
+.selectWrap::after { content: ''; position: absolute; right: 16px; width: 8px; height: 8px; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: rotate(45deg) translateY(-3px); pointer-events: none; }
+.selectWrap option { background: var(--surface); color: var(--text); }
+.eye { width: 44px; height: 44px; display: grid; place-items: center; border: 0; background: none; color: var(--muted); cursor: pointer; border-radius: 10px; }
+.hint { margin: 0; font-size: 13px; color: var(--muted); }
+.error { margin: 0; font-size: 13px; font-weight: 600; color: var(--danger); }
+[data-theme='dark'] .error { color: #ff8a80; }
+
+.choice { position: relative; display: flex; gap: 12px; align-items: flex-start; padding: 16px; border-radius: 16px; border: 1.5px solid var(--border-strong); background: var(--surface); cursor: pointer; transition: border-color var(--dur-hover) var(--ease-out), box-shadow var(--dur-hover) var(--ease-out), transform var(--dur-hover) var(--ease-out); }
+.choice:hover { border-color: var(--purple); transform: translateY(-2px); }
+.choiceOn { border-color: var(--purple); box-shadow: 0 0 0 3px rgba(130, 56, 245, 0.25), var(--glow-purple); }
+.choiceInput { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.choice:has(.choiceInput:focus-visible) { outline: 3px solid var(--lime); outline-offset: 3px; }
+[data-theme='light'] .choice:has(.choiceInput:focus-visible) { outline-color: var(--purple); }
+.choiceTick { flex: none; width: 22px; height: 22px; border-radius: 7px; border: 2px solid var(--border-strong); display: grid; place-items: center; background: var(--surface); color: var(--on-lime); }
+.choiceOn .choiceTick { background: var(--lime); border-color: var(--lime); }
+.choiceIcon { flex: none; color: var(--purple-ink); }
+.choiceText { display: flex; flex-direction: column; gap: 4px; font-size: 15px; line-height: 1.35; }
+.choiceText small { color: var(--muted); font-size: 13px; }
+
+.check { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; font-size: 14px; line-height: 1.5; min-height: 24px; }
+.check input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.checkBox { flex: none; width: 22px; height: 22px; border-radius: 7px; border: 2px solid var(--border-strong); display: grid; place-items: center; color: var(--on-lime); margin-top: 1px; }
+.check input:checked + .checkBox { background: var(--lime); border-color: var(--lime); }
+[data-theme='light'] .check input:checked + .checkBox { background: var(--purple); border-color: var(--purple); color: #fff; }
+.check input:focus-visible + .checkBox { outline: 3px solid var(--lime); outline-offset: 2px; }
+[data-theme='light'] .check input:focus-visible + .checkBox { outline-color: var(--purple); }

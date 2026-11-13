@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="360" viewBox="0 0 360 360" role="img" aria-labelledby="title desc">
+<title id="title">27 Object Asset Folder</title><desc id="desc">Electric Doodle scalable vector illustration: 27_object_asset_folder.</desc>
+<defs>
+  <linearGradient id="k27objectassetfolder_hood" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#C26AFF"/><stop offset="0.48" stop-color="#8530E5"/><stop offset="1" stop-color="#4D0AA5"/></linearGradient>
+  <linearGradient id="k27objectassetfolder_skin" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFD2A3"/><stop offset=".53" stop-color="#FFAE77"/><stop offset="1" stop-color="#EA7348"/></linearGradient>
+  <linearGradient id="k27objectassetfolder_screen" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#433A66"/><stop offset=".7" stop-color="#252237"/><stop offset="1" stop-color="#121422"/></linearGradient>
+  <linearGradient id="k27objectassetfolder_lime" x1="0" y1="0" x2="1" y2=".4"><stop stop-color="#E5FF52"/><stop offset="1" stop-color="#B5EC05"/></linearGradient>
+ </defs><g stroke-linecap="round" stroke-linejoin="round"><path d="M55 120 H143 L168 92 H294 Q313 92 313 111 V270 Q313 290 293 290 H61 Q41 290 41 269 V143 Q41 120 55 120Z" fill="#8D37F6" stroke="white" stroke-width="12"/><path d="M55 120 H143 L168 92 H294 Q313 92 313 111 V270 Q313 290 293 290 H61 Q41 290 41 269 V143 Q41 120 55 120Z" fill="url(#k27objectassetfolder_hood)" stroke="#171024" stroke-width="7"/><path d="M78 190 H274" stroke="#DDB6FF" stroke-width="12"/><path d="M177 161 V241 M140 207 l37 36 38 -36" stroke="#C7F60C" stroke-width="12" fill="none"/></g></svg>

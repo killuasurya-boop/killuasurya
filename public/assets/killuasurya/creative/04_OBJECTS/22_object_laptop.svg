@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="360" viewBox="0 0 360 360" role="img" aria-labelledby="title desc">
+<title id="title">22 Object Laptop</title><desc id="desc">Electric Doodle scalable vector illustration: 22_object_laptop.</desc>
+<defs>
+  <linearGradient id="k22objectlaptop_hood" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#C26AFF"/><stop offset="0.48" stop-color="#8530E5"/><stop offset="1" stop-color="#4D0AA5"/></linearGradient>
+  <linearGradient id="k22objectlaptop_skin" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFD2A3"/><stop offset=".53" stop-color="#FFAE77"/><stop offset="1" stop-color="#EA7348"/></linearGradient>
+  <linearGradient id="k22objectlaptop_screen" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#433A66"/><stop offset=".7" stop-color="#252237"/><stop offset="1" stop-color="#121422"/></linearGradient>
+  <linearGradient id="k22objectlaptop_lime" x1="0" y1="0" x2="1" y2=".4"><stop stop-color="#E5FF52"/><stop offset="1" stop-color="#B5EC05"/></linearGradient>
+ </defs><g stroke-linecap="round" stroke-linejoin="round"><path d="M74 74 H277 Q291 74 291 90 V250 H58 V92 Q58 74 74 74Z" fill="url(#k22objectlaptop_screen)" stroke="white" stroke-width="11"/><rect x="72" y="90" width="205" height="149" rx="11" fill="#262039" stroke="#14121E" stroke-width="5"/><path d="M102 188 L127 171 157 189 177 140 209 177 236 148" stroke="#C7F60C" stroke-width="10" fill="none"/><path d="M42 258 H317 L333 288 Q332 308 309 310 H56 Q30 306 27 284Z" fill="#5E4C78" stroke="#171020" stroke-width="9"/><path d="M147 271 h70" stroke="#C7F60C" stroke-width="7"/><path d="M85 105 h64" stroke="#B764FF" stroke-width="7"/></g></svg>

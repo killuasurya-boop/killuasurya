@@ -1,0 +1,23 @@
+.nav { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border); background: var(--surface); color: var(--text); display: grid; place-items: center; cursor: pointer; }
+.nav:hover { border-color: var(--purple); }
+.legend { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 10px; font-size: 12px; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i, .dots i, .dotLg { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.dotLg { width: 12px; height: 12px; }
+.deadline { background: var(--c5); } .publish { background: var(--c1); } .review { background: var(--c4); } .start { background: var(--c2); } .material { background: var(--c3); }
+.week { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; font-size: 12px; font-weight: 700; color: var(--muted); text-align: center; margin-bottom: 6px; }
+.grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
+.day { min-height: 92px; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; padding: 8px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font: inherit; text-align: left; cursor: pointer; transition: border-color var(--dur-hover), transform var(--dur-hover) var(--ease-out); min-width: 0; }
+.day:hover { border-color: var(--purple); transform: translateY(-2px); }
+.day[aria-pressed='true'] { border-color: var(--lime); box-shadow: var(--glow-lime); }
+[data-theme='light'] .day[aria-pressed='true'] { border-color: var(--purple); }
+.num { font-weight: 800; font-size: 14px; }
+.dots { display: flex; gap: 3px; }
+.labels { display: grid; gap: 2px; width: 100%; }
+.labels small { font-size: 10.5px; line-height: 1.25; padding: 2px 5px; border-radius: 5px; background: var(--raised); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+@media (max-width: 760px) { .day { min-height: 52px; padding: 6px; } .labels { display: none; } }
+
+.today .num { display: inline-grid; place-items: center; min-width: 26px; height: 26px; border-radius: 50%; background: var(--purple); color: #fff; }
+.lateLabel { outline: 1px solid var(--c3); }
+.evLink { color: inherit; text-decoration: none; border-radius: 12px; }
+.evLink:hover { background: var(--raised); }

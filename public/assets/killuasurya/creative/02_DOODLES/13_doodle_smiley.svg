@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="360" viewBox="0 0 360 360" role="img" aria-labelledby="title desc">
+<title id="title">13 Doodle Smiley</title><desc id="desc">Electric Doodle vector 13_doodle_smiley.</desc>
+<defs>
+  <linearGradient id="k13doodlesmiley_hood" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#C26AFF"/><stop offset="0.48" stop-color="#8530E5"/><stop offset="1" stop-color="#4D0AA5"/></linearGradient>
+  <linearGradient id="k13doodlesmiley_skin" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFD2A3"/><stop offset=".53" stop-color="#FFAE77"/><stop offset="1" stop-color="#EA7348"/></linearGradient>
+  <linearGradient id="k13doodlesmiley_screen" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#433A66"/><stop offset=".7" stop-color="#252237"/><stop offset="1" stop-color="#121422"/></linearGradient>
+  <linearGradient id="k13doodlesmiley_lime" x1="0" y1="0" x2="1" y2=".4"><stop stop-color="#E5FF52"/><stop offset="1" stop-color="#B5EC05"/></linearGradient>
+ </defs><g stroke-linecap="round" stroke-linejoin="round"><path d="M42 92 Q27 58 62 49 M296 64 q34 -10 33 19" stroke="#C7F60C" stroke-width="10" fill="none" opacity=".55"/><path d="M178 66 C245 66 294 112 294 185 C294 256 243 301 175 301 C104 301 63 255 63 186 C63 118 111 66 178 66Z" fill="none" stroke="#C7F60C" stroke-width="16"/><path d="M123 150 Q132 139 141 150 M215 146 Q228 135 238 146" stroke="#C7F60C" stroke-width="13" fill="none"/><path d="M117 213 Q174 268 239 207" stroke="#C7F60C" stroke-width="17" fill="none"/></g></svg>
