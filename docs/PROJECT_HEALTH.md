@@ -22,6 +22,8 @@ This is the current engineering handoff. `FINAL_REPORT.md` and phase reports des
 | Live integration tests could be pointed at a remote backend | Test configuration rejects non-loopback app/API URLs and requires an explicit API_URL. |
 | No automated quality workflow or durable project guidance | Added project skills, AGENTS.md, isolated SQL/unit regression tests and a GitHub Actions workflow. |
 | Screenshot references predated existing navigation/WhatsApp changes and the Today/Overview split | Visual tests now cover `/os` as `os-today` and `/os/overview` as `os-dashboard`; references are aligned with the existing application, without changing its design. |
+| Project/template/task creation spanned separate HTTP transactions and ignored some checklist failures | Two invoker RPCs create each complete unit of work in one transaction, retaining RLS. Late failures roll back all related inserts. Tests cover rollback, role restrictions, every committed template and the complete lead-to-completion workflow. |
+| Hostinger's auth callback redirected to its internal `0.0.0.0:3000` origin | Callback success/failure redirects now use the validated public site origin. The issue was reproduced on the live deployment using an invalid token; no real credential or user data was submitted. |
 
 ## Verification
 
@@ -35,6 +37,8 @@ This is the current engineering handoff. `FINAL_REPORT.md` and phase reports des
 | Visual comparisons | 36/36 passed in a separate confirmation run **without** `--update-snapshots`, covering six surfaces, two themes and three viewport sizes. |
 | Firefox interaction/security suite | Initial run: 25 passed, 1 intentionally skipped mobile-only test, 1 login-navigation timeout under concurrent load. Isolated recheck: 1/1 passed (26 applicable cases verified in total). |
 | WebKit / full Supabase HTTP integration | Not run: WebKit's system libraries were unavailable and root installation failed; Docker socket access was unavailable for a local Supabase stack. PGlite does not cover those services. |
+| GitHub CI for `40eec27` | Full quality workflow completed successfully, including all build, audit, unit/SQL and Chromium/visual steps: https://github.com/killuasurya-boop/killuasurya/actions/runs/43752854201 |
+| Atomic-creation/auth-callback follow-up | 5 unit checks and 13 SQL checks passed; typecheck and production build passed; 9 affected desktop/mobile browser checks passed. Read-only release diagnostics were tested against the ephemeral PostgreSQL schema. |
 
 Commands:
 
@@ -56,7 +60,7 @@ The old workspace reference showed “Agency OS Lead-to-Project” at `/os`, whi
 
 ## Applying the database repair
 
-New projects: apply every migration in filename order. Existing installations with 0001–0007 already applied: review and apply only `20261115190835_harden_inactive_accounts.sql` through the normal Supabase deployment process. It changes policies/functions/grants, does not remove tables or business data, and intentionally revokes inactive-user access even while old JWTs remain valid.
+New projects: apply every migration in filename order. Existing installations with 0001–0007 already applied: review and apply `20261115190835_harden_inactive_accounts.sql`, then `20261115203528_atomic_project_creation.sql` through the normal Supabase deployment process. They change policies/functions/grants and do not remove business data. The first intentionally revokes inactive-user access with an existing JWT. The second must be applied before deploying the application version calling the new creation RPCs.
 
 This working branch does not apply migrations to the cloud or deploy the application. After rollout, verify with active Owner/staff/client users and an inactive user with an existing session. Run Supabase security advisors on the actual target project.
 
@@ -66,8 +70,10 @@ This working branch does not apply migrations to the cloud or deploy the applica
 - Cloud Auth settings, SMTP delivery, real Storage uploads and service-specific integrations still need verification in the target environment. No cloud credentials or admin keys are added to the repo.
 - Operations, Publishing, WhatsApp, Reports, Media and Settings retain their existing honest DATA DEMO states. Provider OAuth, credentials and business configuration are prerequisites for live features; a repair must not simulate successful publishing or messaging.
 - Public lead capture has a basic honeypot, client timing hints and database caps. The public RPC accepts a caller-provided sender hash, so per-sender limits are not a strong abuse boundary. A trusted server gateway/CAPTCHA and concurrent-load validation remain needed before relying on it for sustained bot protection.
-- Several project/template creation steps span separate HTTP transactions. Partial failure can leave an incomplete project. A future atomic RPC needs its own schema/rollback and integration-test design.
+- The atomic-creation repair is ready in code and isolated tests; its RPCs still need rollout and real Supabase HTTP integration verification.
 - The existing favicon/official square app-icon requirement remains unresolved; no substitute brand mark has been invented.
 - These changes fix the verified issues above. They do not certify every integration, every cloud setting, or every possible application state.
 
 Reference documentation consulted: Supabase changelog, Next.js SSR Auth and redirect URL guidance; Vercel React best practices; Impeccable technical audit and craft guidance. The Impeccable launcher was unavailable, so project context was read directly. No new visual direction was generated.
+
+Current hosting discovery and access prerequisites are recorded in `RELEASE_READINESS.md`: the production domain is already on Hostinger; the documented Supabase target returned a permission error on the connected account. Other accessible projects were not changed.

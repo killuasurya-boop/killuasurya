@@ -1,6 +1,6 @@
 # Backend setup — Supabase (P0-B langkah 1)
 
-> Pembaruan 15 Nov 2026: setelah 0001–0007, ada migrasi tambahan `20261115190835_harden_inactive_accounts.sql` untuk akses akun nonaktif, hak PIC, dan grants eksplisit. Lihat `PROJECT_HEALTH.md` untuk status verifikasi terbaru. `NEXT_PUBLIC_SITE_URL` kini juga menentukan callback email reset (jangan mengandalkan header Host). Tes live mewajibkan `API_URL` lokal dan menolak URL produksi.
+> Pembaruan 15 Nov 2026: setelah 0001–0007, terapkan `20261115190835_harden_inactive_accounts.sql` untuk akses akun nonaktif, lalu `20261115203528_atomic_project_creation.sql` untuk pembuatan proyek/tugas/checklist dalam satu transaksi. Lihat `PROJECT_HEALTH.md` untuk status verifikasi dan `RELEASE_READINESS.md` untuk urutan rilis. `NEXT_PUBLIC_SITE_URL` kini juga menentukan callback email reset. Tes live mewajibkan `API_URL` lokal dan menolak URL produksi.
 
 Status: kode siap, **belum terhubung** sampai Owner membuat proyek Supabase. Tanpa env, situs tetap berjalan dalam **mode demo** seperti sebelumnya.
 
@@ -18,6 +18,7 @@ tanpa login tidak bisa buka `/os` & `/portal` · sandi salah ditolak · Smart Br
 | Upload file bahan klien (Storage bucket privat `project-files`, maks. 20 MB) | `supabase/migrations/0006_project_files.sql` |
 | Merapatkan hak akses anon pada tabel bahan & file | `supabase/migrations/0007_harden_anon.sql` |
 | Menutup akses akun nonaktif, membatasi hak PIC ke staf, grants eksplisit | `supabase/migrations/20261115190835_harden_inactive_accounts.sql` |
+| Pembuatan proyek template / tugas dan checklist dalam satu transaksi | `supabase/migrations/20261115203528_atomic_project_creation.sql` |
 | Proteksi route | `middleware.ts` |
 | Login, logout, lupa sandi | `src/server/actions/auth.ts` |
 | Data & aksi (tugas, lead, tim) | `src/server/data.ts`, `src/server/actions/tasks.ts`, `leads.ts` |
@@ -32,7 +33,7 @@ Selama `.env.local` kosong, `/login` menampilkan 6 akun demo (Owner, Roby, Ojak,
 
 ## Langkah Owner (± 15 menit)
 1. Buat proyek di supabase.com (region Singapore).
-2. SQL Editor → jalankan `0001_init.sql` sampai `0007_harden_anon.sql`, lalu `20261115190835_harden_inactive_accounts.sql` (berurutan). 0006 juga membuat bucket Storage `project-files` (privat) — tidak perlu dibuat manual. Yang sudah pernah dijalankan tidak perlu diulang.
+2. SQL Editor → jalankan `0001_init.sql` sampai `0007_harden_anon.sql`, lalu dua migrasi bertanggal 20261115 menurut urutan nama. 0006 juga membuat bucket Storage `project-files` (privat). Yang sudah pernah dijalankan tidak perlu diulang. Jalankan `supabase/release_checks.sql` untuk diagnostik read-only setelah migrasi.
 3. Authentication → Sign In / Providers → Email: **matikan "Allow new users to sign up"** (staf hanya lewat undangan). Authentication → URL Configuration: isi Site URL.
 4. Authentication → Users → **Add user → Create new user**: isi email + kata sandi Anda, centang Auto Confirm. Lalu di SQL Editor jadikan Owner:
    `update public.profiles set role = 'owner', full_name = 'Surya' where id = (select id from auth.users where email = 'EMAIL_ANDA');`

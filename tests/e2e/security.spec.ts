@@ -1,5 +1,14 @@
 import { expect, test } from '@playwright/test';
 
+test('@mobile auth callback behind a reverse proxy redirects to the configured public origin', async ({ request, baseURL }) => {
+  const response = await request.get('/auth/confirm?token_hash=invalid', {
+    headers: { host: '0.0.0.0:3000', 'x-forwarded-host': 'untrusted.example' }, maxRedirects: 0,
+  });
+  expect(response.status()).toBe(307);
+  expect(response.headers()['location']).toBe(new URL('/forgot-password?expired=1', baseURL).href);
+  expect(response.headers()['location']).not.toContain('token_hash');
+});
+
 test('@mobile @layout private endpoints send no-store and defensive headers, including errors', async ({ request }) => {
   for (const path of ['/api/files/invalid', '/api/quotations/invalid/pdf', '/auth/confirm?token_hash=invalid']) {
     const response = await request.get(path, { maxRedirects: 0 });

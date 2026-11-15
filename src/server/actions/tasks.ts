@@ -42,20 +42,14 @@ export async function createTask(input: { title: string; description: string; pr
   const title = String(input.title ?? '').trim().slice(0, 200);
   if (title.length < 2 || !STAGES.includes(input.stage) || !UUID.test(input.pic)) return fail('Judul, tahap, dan PIC wajib diisi.');
   if (input.due && !/^\d{4}-\d{2}-\d{2}$/.test(input.due)) return fail('Tanggal tidak valid.');
-  if (!backendConfigured) return fail('Backend belum terhubung.');
-  const db = await createSupabase();
-  let projectId = input.projectId;
-  if (!UUID.test(projectId)) {
-    const { data, error } = await db.rpc('create_project', { p_client: String(input.newClient ?? ''), p_project: String(input.newProject ?? '') });
-    if (error || !data) return fail(error?.message);
-    projectId = data as string;
-  }
-  const { data: task, error } = await db.from('tasks').insert({ project_id: projectId, title, description: String(input.description ?? '').slice(0, 4000), stage: input.stage, status: 'ready', pic: input.pic, due: input.due || null, priority: [1, 2, 3].includes(input.priority) ? input.priority : 2 }).select('id').single();
-  if (error || !task) return fail(error?.message);
   const items = String(input.checklist ?? '').split('\n').map((s) => s.trim().slice(0, 200)).filter(Boolean).slice(0, 20);
-  if (items.length) await db.from('task_checklist').insert(items.map((text, position) => ({ task_id: task.id, text, position })));
-  revalidatePath('/os/tasks');
-  return { ok: true };
+  return run((db) => db.rpc('create_task_with_checklist', {
+    p_project: UUID.test(input.projectId) ? input.projectId : null,
+    p_new_client: String(input.newClient ?? ''), p_new_project: String(input.newProject ?? ''),
+    p_title: title, p_description: String(input.description ?? '').slice(0, 4000), p_stage: input.stage,
+    p_pic: input.pic, p_due: input.due || null, p_priority: [1, 2, 3].includes(input.priority) ? input.priority : 2,
+    p_checklist: items,
+  }), '/os/tasks', '/os/projects', '/os', '/portal');
 }
 
 export async function updateLead(id: string, patch: { status?: string; notes?: string; followUp?: string | null }): Promise<R> {
@@ -114,25 +108,10 @@ export async function newProjectFromTemplate(client: string, project: string, te
   const tpl = templateById(templateId);
   if (!tpl) return newProject(client, project);
   if (materialsDue && !DATE.test(materialsDue)) return fail('Tanggal tidak valid.');
-  if (!backendConfigured) return fail('Backend belum terhubung.');
-  const db = await createSupabase();
-  const { data: id, error } = await db.rpc('create_project', { p_client: String(client ?? ''), p_project: String(project ?? '') });
-  if (error || !id) return fail(error?.message);
-  const pid = id as string;
-  const { error: e1 } = await db.from('projects').update({ template: tpl.id, materials_due: materialsDue || null }).eq('id', pid);
-  if (e1) return fail(e1.message);
-  const { error: e2 } = await db.from('project_materials').insert(tpl.materials.map((m, position) => ({ project_id: pid, position, label: m.label, detail: m.detail, fallback: m.fallback, required: m.required })));
-  if (e2) return fail(e2.message);
-  const { data: profiles } = await db.from('profiles').select('id, role').eq('active', true).order('created_at');
-  const { data: me } = await db.auth.getUser();
-  const pick = (role: string) => profiles?.find((p) => p.role === role)?.id ?? me.user?.id ?? null;
-  for (const t of tpl.plan) {
-    const { data: task, error: e3 } = await db.from('tasks').insert({ project_id: pid, title: t.title, stage: t.stage, status: 'waiting', pic: pick(t.role), day_offset: t.day - 1, needs_client: !!t.client, priority: 2 }).select('id').single();
-    if (e3 || !task) return fail(e3?.message);
-    await db.from('task_checklist').insert(t.checklist.map((text, position) => ({ task_id: task.id, text, position })));
-  }
-  ['/os/projects', '/os/tasks', '/os', '/portal'].forEach((p) => revalidatePath(p));
-  return { ok: true };
+  return run((db) => db.rpc('create_project_with_template', {
+    p_client: String(client ?? ''), p_project: String(project ?? ''), p_template: tpl.id,
+    p_materials_due: materialsDue || null, p_materials: tpl.materials, p_plan: tpl.plan,
+  }), '/os/projects', '/os/tasks', '/os', '/portal');
 }
 export async function setMaterial(id: string, status: string): Promise<R> {
   if (!UUID.test(id) || !MSTATUS.includes(status)) return fail('Permintaan tidak valid.');

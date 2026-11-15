@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { NextResponse } from 'next/server';
-import { passwordResetRedirect } from '../../src/lib/auth-redirect';
+import { authResultRedirect, passwordResetRedirect } from '../../src/lib/auth-redirect';
 import { privateAuthResponse } from '../../src/lib/auth-response';
 import { assertLocalTestUrl } from '../local-origin';
 
@@ -40,4 +40,12 @@ test('redirects preserve every refreshed cookie and cookie deletion, with privat
 
 test('ordinary auth responses also prevent shared caching', () => {
   assert.equal(privateAuthResponse(NextResponse.next()).headers.get('cache-control'), 'private, no-store');
+});
+
+test('auth callback results always use the configured public origin and discard token query strings', () => {
+  const site = 'https://killuasurya.tech/path?token_hash=should-not-propagate';
+  assert.equal(authResultRedirect(site, true).href, 'https://killuasurya.tech/set-password');
+  assert.equal(authResultRedirect(site, false).href, 'https://killuasurya.tech/forgot-password?expired=1');
+  assert.equal(authResultRedirect('http://localhost:3200', true).href, 'http://localhost:3200/set-password');
+  assert.throws(() => authResultRedirect('http://0.0.0.0:3000', false));
 });
