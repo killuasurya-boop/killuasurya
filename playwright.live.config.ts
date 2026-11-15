@@ -1,4 +1,8 @@
 import { defineConfig, devices } from '@playwright/test';
+import { assertLocalTestUrl } from './tests/local-origin';
+
+const liveUrl = assertLocalTestUrl(process.env.LIVE_URL ?? 'http://localhost:3200', 'LIVE_URL');
+assertLocalTestUrl(process.env.API_URL, 'API_URL');
 
 /**
  * LIVE-mode tests: real login, RLS and workflow against a LOCAL Supabase (`npx supabase start`) seeded with
@@ -10,5 +14,5 @@ export default defineConfig({
   workers: 1,
   reporter: [['list']],
   outputDir: 'qa/test-results-live',
-  use: { baseURL: process.env.LIVE_URL ?? 'http://localhost:3200', trace: 'retain-on-failure', ...devices['Desktop Chrome'], viewport: { width: 1440, height: 900 } },
+  use: { baseURL: liveUrl, trace: 'retain-on-failure', ...devices['Desktop Chrome'], viewport: { width: 1440, height: 900 } },
 });

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { redirect } from 'next/navigation';
 import { AppShell } from '@/components/os/AppShell';
 import { roleLabels } from '@/lib/workflow';
 import { getNotifications } from '@/server/data';
@@ -13,6 +14,8 @@ export default async function OsLayout({ children }: { children: React.ReactNode
     return <AppShell user={d ? { name: d.name, role: `${d.label} (akun demo)`, roleId: d.role, demo: true } : undefined}>{children}</AppShell>;
   }
   const u = await currentUser();
+  if (!u) redirect('/login');
+  if (u.role === 'client') redirect('/portal');
   const notes = u ? await getNotifications().catch(() => []) : undefined;
   return <AppShell notes={notes} user={u ? { name: u.name || u.email, role: roleLabels[u.role] ?? u.role, roleId: u.role } : undefined}>{children}</AppShell>;
 }

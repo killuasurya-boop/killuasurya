@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from 'next/server';
 import { createServerClient } from '@supabase/ssr';
+import { privateAuthResponse } from '@/lib/auth-response';
 
 const url = process.env.NEXT_PUBLIC_SUPABASE_URL ?? '';
 const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? '';
@@ -18,16 +19,22 @@ export async function middleware(req: NextRequest) {
   const supabase = createServerClient(url, key, {
     cookies: {
       getAll: () => req.cookies.getAll(),
-      setAll: (list) => {
+      setAll: (list, cacheHeaders) => {
         list.forEach(({ name, value }) => req.cookies.set(name, value));
         res = NextResponse.next({ request: req });
         list.forEach(({ name, value, options }) => res.cookies.set(name, value, options));
+        Object.entries(cacheHeaders).forEach(([name, value]) => res.headers.set(name, value));
       },
     },
   });
   const { data: { user } } = await supabase.auth.getUser();
   const path = req.nextUrl.pathname;
-  const to = (p: string, withNext = false) => { const u = req.nextUrl.clone(); u.pathname = p; u.search = withNext ? `?next=${encodeURIComponent(path)}` : ''; return NextResponse.redirect(u); };
+  const to = (p: string, withNext = false) => { const u = req.nextUrl.clone(); u.pathname = p; u.search = withNext ? `?next=${encodeURIComponent(path)}` : ''; return privateAuthResponse(NextResponse.redirect(u), res); };
+
+  // API handlers authenticate themselves and return 401/404, never HTML login redirects.
+  // Auth routes also need refreshed cookies before Server Components read the session.
+  const protectedPage = path === '/os' || path.startsWith('/os/') || path === '/portal' || path.startsWith('/portal/');
+  if (!protectedPage) return privateAuthResponse(res);
 
   if (!user) return to('/login', true);
   const { data: profile } = await supabase.from('profiles').select('role, active').eq('id', user.id).single();
@@ -35,8 +42,7 @@ export async function middleware(req: NextRequest) {
   const staff = STAFF.includes(profile.role);
   if (path.startsWith('/os') && !staff) return to('/portal');
   if (path.startsWith('/portal') && staff && profile.role !== 'owner') return to('/os');
-  res.headers.set('Cache-Control', 'private, no-store');
-  return res;
+  return privateAuthResponse(res);
 }
 
-export const config = { matcher: ['/os/:path*', '/portal/:path*'] };
+export const config = { matcher: ['/os/:path*', '/portal/:path*', '/api/:path*', '/auth/:path*', '/set-password', '/reset-password'] };

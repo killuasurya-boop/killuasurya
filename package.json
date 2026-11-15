@@ -7,6 +7,10 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
+    "check:deployment": "node scripts/check-deployment.mjs",
+    "test:unit": "node --import tsx tests/unit/auth.test.ts",
+    "test:db": "node --import tsx tests/database/access.test.mjs",
+    "test": "npm run test:unit && npm run test:db",
     "assets:sync": "node scripts/sync-assets.mjs",
     "test:e2e": "playwright test --project=desktop-1440 --project=laptop-1024 --project=tablet-768 --project=mobile-390 --project=mobile-360",
     "test:a11y": "playwright test a11y --project=desktop-1440 --project=mobile-390",
@@ -32,10 +36,12 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",
+    "@electric-sql/pglite": "0.5.16",
     "@playwright/test": "1.63.0",
     "@types/node": "22.15.0",
     "@types/react": "19.1.12",
     "@types/react-dom": "19.1.9",
+    "tsx": "4.23.15",
     "typescript": "5.8.3"
   },
   "overrides": {

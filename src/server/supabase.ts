@@ -1,6 +1,7 @@
 import 'server-only';
 import { cookies } from 'next/headers';
 import { createServerClient } from '@supabase/ssr';
+import { cache } from 'react';
 
 /**
  * Backend switch. Without these two public values the site runs in DEMO MODE exactly as before
@@ -26,7 +27,7 @@ export async function createSupabase() {
 }
 
 /** Current user + role (from `profiles`, enforced by RLS). Null when signed out or backend not configured. */
-export async function currentUser() {
+export const currentUser = cache(async () => {
   if (!backendConfigured) return null;
   const supabase = await createSupabase();
   const { data: { user } } = await supabase.auth.getUser();
@@ -34,4 +35,4 @@ export async function currentUser() {
   const { data } = await supabase.from('profiles').select('full_name, role, active').eq('id', user.id).single();
   if (!data?.active) return null;
   return { id: user.id, email: user.email ?? '', name: data.full_name as string, role: data.role as AppRole };
-}
+});
