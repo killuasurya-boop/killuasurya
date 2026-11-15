@@ -50,7 +50,7 @@ export function Button(props: AsLink | AsButton) {
   }
   const b = rest as AsButton;
   return (
-    <motion.button type={b.type ?? 'button'} className={cls} aria-busy={loading || undefined} disabled={b.disabled || loading} {...motionProps} {...(b as object)}>
+    <motion.button type={b.type ?? 'button'} className={cls} {...motionProps} {...(b as object)} aria-busy={loading || undefined} disabled={b.disabled || loading}>
       {content}
     </motion.button>
   );

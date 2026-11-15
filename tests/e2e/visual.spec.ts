@@ -6,7 +6,8 @@ const shots = [
   { name: 'home-hero', route: '/' },
   { name: 'services', route: '/services' },
   { name: 'login', route: '/login' },
-  { name: 'os-dashboard', route: '/os' },
+  { name: 'os-today', route: '/os' },
+  { name: 'os-dashboard', route: '/os/overview' },
   { name: 'os-projects', route: '/os/projects' },
 ];
 

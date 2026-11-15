@@ -1,6 +1,8 @@
 'use server';
 
-import { cookies, headers } from 'next/headers';
+import { cookies } from 'next/headers';
+import { passwordResetRedirect } from '@/lib/auth-redirect';
+import { siteUrl } from '@/content/site';
 import { redirect } from 'next/navigation';
 import { DEMO_COOKIE, DEMO_PASSWORD, demoAccounts } from '@/lib/demo-accounts';
 import { backendConfigured, createSupabase, STAFF_ROLES, type AppRole } from '../supabase';
@@ -45,11 +47,8 @@ export async function requestPasswordReset(emailInput: string): Promise<{ sent: 
   if (!backendConfigured) return { sent: false, demo: true };
   const email = String(emailInput ?? '').trim().toLowerCase();
   if (isEmail(email)) {
-    const h = await headers();
-    const host = h.get('x-forwarded-host') ?? h.get('host') ?? '';
-    const proto = h.get('x-forwarded-proto') ?? (host.startsWith('localhost') || host.startsWith('127.') ? 'http' : 'https');
     const supabase = await createSupabase();
-    await supabase.auth.resetPasswordForEmail(email, host ? { redirectTo: `${proto}://${host}/auth/confirm?next=/set-password` } : undefined);
+    await supabase.auth.resetPasswordForEmail(email, { redirectTo: passwordResetRedirect(siteUrl) });
   }
   return { sent: true, demo: false };
 }

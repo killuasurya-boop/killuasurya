@@ -18,7 +18,7 @@ export default defineConfig({
   outputDir: 'qa/test-results',
   snapshotPathTemplate: '{testDir}/__screenshots__/{projectName}/{arg}{ext}',
   use: { baseURL: `http://localhost:${PORT}`, trace: 'retain-on-failure', screenshot: 'only-on-failure' },
-  webServer: { command: `npx next start -p ${PORT}`, url: `http://localhost:${PORT}`, reuseExistingServer: true, timeout: 120_000 },
+  webServer: { command: `npx next start -p ${PORT}`, url: `http://localhost:${PORT}`, reuseExistingServer: !process.env.CI, timeout: 120_000 },
   // Use the npm scripts (Windows-friendly, no env vars):
   //   test:e2e      → 5 Chromium viewports        test:perf     → perf (1 worker)
   //   test:xbrowser → Firefox + WebKit (desktop & iPhone)

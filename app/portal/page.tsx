@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { redirect } from 'next/navigation';
 import { PortalScreen } from '@/components/os/screens/Portal';
 import { PortalLive } from '@/components/os/screens/Live';
 import { signOut } from '@/server/actions/auth';
@@ -10,6 +11,7 @@ export const metadata: Metadata = { title: 'Portal Klien — KILLUASURYA.TECH', 
 
 export default async function Page() {
   const data = backendConfigured ? await getPortal() : null;
+  if (backendConfigured && !data) redirect('/client/login');
   if (!data) return (await demoUser()) ? <PortalScreen onSignOut={signOut} /> : <PortalScreen />;   // demo mode
   return <PortalScreen onSignOut={signOut}><PortalLive data={data} /></PortalScreen>;
 }

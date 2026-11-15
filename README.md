@@ -18,14 +18,17 @@ npm run build && npm run start      # http://localhost:3000
 - **Dengan `.env.local`** → **mode live** (Supabase). Salin `.env.example`, isi `NEXT_PUBLIC_SUPABASE_URL` dan `NEXT_PUBLIC_SUPABASE_ANON_KEY`. Kunci *service_role* tidak dipakai aplikasi ini — jangan pernah menaruhnya di repo.
 
 ## Database
-Jalankan `supabase/migrations/0001` … `0007` berurutan (SQL Editor Supabase atau `npx supabase migration up`). Semua tabel ber-RLS; aturan alur kerja ditegakkan di database (fungsi `task_transition`, `client_decide`, `project_start`, dll.). Panduan lengkap: [`docs/BACKEND_SETUP.md`](docs/BACKEND_SETUP.md).
+Jalankan semua SQL di `supabase/migrations/` menurut urutan nama: `0001` … `0007`, lalu `20261115190835_harden_inactive_accounts.sql` (SQL Editor Supabase atau CLI lokal). Instalasi yang sudah menjalankan 0001–0007 cukup menerapkan migrasi tambahan. Semua tabel ber-RLS; aturan alur kerja ditegakkan di database (fungsi `task_transition`, `client_decide`, `project_start`, dll.). Panduan lengkap: [`docs/BACKEND_SETUP.md`](docs/BACKEND_SETUP.md).
 
 ## Tes
 ```bash
+npm test                 # unit keamanan + migrasi/RLS PostgreSQL terisolasi (tanpa Docker/cloud)
+npm run typecheck
 npm run test:e2e          # mode demo, 5 ukuran layar (layout, a11y/axe, visual, interaksi)
 npx playwright test -c playwright.live.config.ts   # mode live terhadap Supabase LOKAL (Docker) — jangan ke produksi
 ```
 
 ## Catatan
+- Panduan kerja dan skill proyek: [`AGENTS.md`](AGENTS.md). Status pembenahan, bukti uji, batasan, dan migrasi tambahan: [`docs/PROJECT_HEALTH.md`](docs/PROJECT_HEALTH.md).
 - Aset brand (logo, maskot) adalah milik KILLUASURYA.TECH.
 - Laporan audit & keputusan: `docs/AUDIT_V5.md`, `docs/FINAL_REPORT.md`.
