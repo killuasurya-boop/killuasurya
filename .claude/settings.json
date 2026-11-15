@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'WAJIB: terapkan skill hemat-token (.claude/skills/hemat-token/SKILL.md) untuk permintaan ini. Jika tentang website/landing page/copywriting, WAJIB juga skill website-bisnis. Jika tentang gambar/desain/video, WAJIB juga skill desain-gambar.'"
+          }
+        ]
+      }
+    ]
+  }
+}
